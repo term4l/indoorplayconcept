@@ -1,0 +1,244 @@
+/* Wartości z Elementora (post-543.css). */
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-height: 60vh;
+  padding: 40px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--c-surface);
+  opacity: 0.63;
+}
+
+.kicker {
+  margin: 0;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  text-transform: uppercase;
+  color: var(--c-text);
+}
+
+.h1 {
+  margin: 0;
+  font: 600 55px/1 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.lead {
+  width: 50%;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+.lead p {
+  margin: 0 0 0.9rem;
+}
+
+/* ---------- Sekcje ---------- */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(100% - 20px, var(--container));
+  margin: 50px auto 0;
+}
+
+.offers {
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.h2 {
+  margin: 0;
+  font: 600 32px/1 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.tile,
+.offer {
+  padding: 20px;
+  background: rgba(33, 33, 33, 0.27);
+  border: 1px solid var(--c-surface);
+}
+
+.tileTitle {
+  margin: 8px 0 10px;
+  font: 600 17px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.tileText,
+.offerType {
+  margin: 0;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+/* ---------- Oferty pracy ---------- */
+
+.offerList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.offer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.offerHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
+}
+
+.apply {
+  flex-shrink: 0;
+  padding: 12px 24px;
+  font: 500 15px/1 var(--font-albert), sans-serif;
+  color: var(--c-surface);
+  background: var(--c-text);
+  border: 1px solid var(--c-line);
+  border-radius: 7px;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+.apply:hover,
+.apply:focus-visible {
+  color: #fff;
+  background: transparent;
+  transform: scale(0.9);
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 32%;
+  padding: 10px;
+}
+
+.columnTitle {
+  margin: 8px 0 10px;
+  font: 600 15px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+.dot {
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  fill: var(--c-muted);
+}
+
+.note {
+  margin: 0;
+  font: 400 14px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-dim);
+}
+
+/* ---------- Responsywność ---------- */
+
+@media (max-width: 1024px) {
+  .lead {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 0 0 40px 20px;
+  }
+
+  .kicker {
+    font-size: 14px;
+  }
+
+  .h1 {
+    font-size: 30px;
+  }
+
+  .lead {
+    width: 90%;
+    font-size: 14px;
+  }
+
+  .h2 {
+    font-size: 23px;
+  }
+
+  .tiles {
+    grid-template-columns: 1fr;
+  }
+
+  .offerHead {
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  .offerType {
+    font-size: 13px;
+  }
+
+  .columns {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .column {
+    width: 100%;
+  }
+}

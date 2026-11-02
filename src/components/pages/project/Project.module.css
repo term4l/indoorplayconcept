@@ -1,0 +1,567 @@
+/* Podstrony projektów 3D – wartości z post-<id>.css (Elementor) stron projektów. */
+
+.page {
+  font-family: var(--font-albert), sans-serif;
+  color: var(--c-muted);
+  background: var(--c-bg);
+}
+
+.page b {
+  font-weight: 700;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 60vh;
+  padding: 40px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.heroImage {
+  z-index: -2;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--c-surface);
+  opacity: 0.63;
+}
+
+.heroInner {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.heroKicker {
+  margin: 0 0 10px;
+  font: 600 17px/1.2 var(--font-albert), sans-serif;
+  letter-spacing: 4.8px;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+
+.heroTitle {
+  margin: 0 0 20px;
+  font: 600 55px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.heroIntro {
+  max-width: 50%;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--c-muted);
+}
+
+.heroIntro p,
+.sectionIntro p,
+.descSection p {
+  margin: 0 0 14px;
+}
+
+.heroIntro p:last-child,
+.sectionIntro p:last-child,
+.descSection p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Opis + spis treści ---------- */
+
+.opis {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 30px;
+  width: min(95%, var(--container));
+  margin: 0 auto;
+  padding-top: 20px;
+  scroll-margin-top: 100px;
+}
+
+.toc {
+  flex: 0 0 calc(35% - 15px);
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #0c4a6e;
+  border-radius: 15px;
+  background: linear-gradient(224deg, #09202e 50%, #09202ee8 65%);
+}
+
+.tocTitle {
+  margin: 0 0 10px;
+  font: 600 22px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.tocList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tocList li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  font-size: 15px;
+}
+
+.tocList li::before {
+  content: "";
+  flex: 0 0 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c-text);
+  box-shadow: 0 0 0 1.5px var(--c-bg), 0 0 0 2.5px var(--c-text);
+  transform: scale(0.8);
+}
+
+.tocList a {
+  color: var(--c-muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.tocList a:hover,
+.tocList a:focus-visible {
+  color: var(--c-blue);
+}
+
+.descCard {
+  flex: 0 0 calc(65% - 15px);
+  min-width: 0;
+  margin-top: 20px;
+  padding: 20px 10px 20px 20px;
+  border: 1px solid var(--c-surface);
+  border-radius: 7px;
+  background: #21212142;
+  transition: box-shadow 0.3s;
+}
+
+.descCard:hover {
+  box-shadow: 0 0 13px rgba(131, 131, 131, 0.37);
+}
+
+.descHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
+}
+
+.descTitle,
+.priceValue {
+  margin: 0;
+  font: 600 25px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.descCode,
+.priceLabel,
+.priceNote {
+  margin: 8px 0 0;
+  font: 400 15px/1.4 var(--font-albert), sans-serif;
+  color: var(--c-soft);
+}
+
+.priceBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 6px;
+}
+
+.priceBox > * {
+  margin: 0;
+}
+
+.priceLabel {
+  text-transform: uppercase;
+}
+
+.descSection {
+  padding: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--c-muted);
+}
+
+.descSectionTitle {
+  margin: 10px 0 14px;
+  font: 600 20px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 10px 10px;
+  padding: 12px 24px;
+  font: 500 15px/1 var(--font-albert), sans-serif;
+  color: var(--c-surface);
+  background: var(--c-text);
+  border-radius: 7px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.ctaButton:hover,
+.ctaButton:focus-visible {
+  background: var(--c-soft);
+}
+
+.ctaIcon {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------- Sekcje ---------- */
+
+.section {
+  width: min(100%, var(--container));
+  margin: 80px auto 40px;
+  padding: 0 50px 40px;
+  border-bottom: 1px solid var(--c-surface);
+  scroll-margin-top: 100px;
+}
+
+.section[data-last] {
+  border-bottom: 0;
+}
+
+.sectionHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.sectionHead[data-align="start"] .sectionTitle {
+  align-self: stretch;
+  text-align: start;
+}
+
+.eyebrow {
+  margin: 0;
+  font: 400 15px/1.2 var(--font-albert), sans-serif;
+  letter-spacing: 4.4px;
+  text-transform: uppercase;
+  color: var(--c-soft);
+}
+
+.sectionTitle {
+  margin: 0;
+  font: 600 30px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.sectionIntro {
+  max-width: 75%;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--c-muted);
+}
+
+/* ---------- Galeria + lightbox ---------- */
+
+.gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.galleryItem {
+  margin: 0;
+}
+
+.galleryItem a {
+  display: block;
+  cursor: zoom-in;
+}
+
+.galleryItem img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.lightboxMedia {
+  position: relative;
+  width: min(92vw, 1600px);
+  height: 86vh;
+}
+
+.lightboxMedia img {
+  object-fit: contain;
+}
+
+.lightboxClose,
+.lightboxPrev,
+.lightboxNext {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  font-size: 32px;
+  line-height: 1;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.lightboxClose:hover,
+.lightboxPrev:hover,
+.lightboxNext:hover {
+  opacity: 1;
+}
+
+.lightboxClose {
+  top: 16px;
+  right: 16px;
+}
+
+.lightboxPrev {
+  left: 16px;
+}
+
+.lightboxNext {
+  right: 16px;
+}
+
+/* ---------- FAQ ---------- */
+
+.faq {
+  margin-top: 80px;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.faqBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--c-surface);
+  border-radius: 7px;
+  background: #21212142;
+  transition: box-shadow 0.3s;
+}
+
+.faqBox:hover {
+  box-shadow: 0 0 13px rgba(131, 131, 131, 0.37);
+}
+
+.faqIcon {
+  flex: 0 0 auto;
+  width: 27px;
+  height: 27px;
+  color: var(--c-text);
+}
+
+.faqQuestion {
+  margin: 0;
+  font: 600 22px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.faqAnswer {
+  margin: 6px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--c-muted);
+}
+
+/* ---------- Artykuły ---------- */
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 30px;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 0 solid var(--c-surface);
+  border-radius: 15px;
+  background: #21212142;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s;
+}
+
+.post:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.postThumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+}
+
+.postThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* hover-gradient z Elementora */
+.postThumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35) 0, transparent 75%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.post:hover .postThumb::after {
+  opacity: 1;
+}
+
+.postText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 0 30px 30px;
+}
+
+.postTitle {
+  margin: 0 0 13px;
+  font: 600 21px/1.3 var(--font-albert), sans-serif;
+}
+
+.postTitle a {
+  color: var(--c-text);
+  text-decoration: none;
+}
+
+.postExcerpt p {
+  margin: 0 0 13px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--c-muted);
+}
+
+.postMore {
+  margin-top: auto;
+  font: 600 12px/1 var(--font-albert), sans-serif;
+  text-transform: uppercase;
+  color: var(--c-text);
+  text-decoration: none;
+}
+
+/* ---------- Responsywność ---------- */
+
+@media (max-width: 1024px) {
+  .heroIntro {
+    max-width: 100%;
+  }
+
+  .faqGrid,
+  .posts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 30px 20px;
+  }
+
+  .heroKicker {
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+
+  .heroTitle {
+    font-size: 23px;
+  }
+
+  .opis {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    width: auto;
+    margin: 0 16px;
+    gap: 0;
+  }
+
+  .toc,
+  .descCard {
+    flex-basis: auto;
+  }
+
+  .descHead {
+    flex-direction: column;
+  }
+
+  .priceBox {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .section {
+    margin-top: 50px;
+    padding: 0 16px 40px;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+  }
+
+  .sectionIntro {
+    max-width: 100%;
+  }
+
+  .faqGrid,
+  .posts {
+    grid-template-columns: 1fr;
+  }
+
+  .faqQuestion {
+    font-size: 19px;
+  }
+}

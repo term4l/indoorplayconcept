@@ -1,0 +1,389 @@
+/* Formularz serwisowy – odwzorowanie klas Tailwinda z wtyczki ipc-serwis-form. */
+
+form.form {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 24px;
+  color: #f5f5f5;
+}
+
+.main {
+  display: grid;
+  grid-column: 1;
+  grid-row: 1;
+  gap: 16px;
+  min-width: 0;
+}
+
+.aside {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: start;
+  padding: 20px;
+  background: linear-gradient(to bottom, rgba(12, 74, 110, 0.2), rgba(23, 23, 23, 0.4));
+  border: 1px solid rgba(68, 186, 245, 0.3);
+  border-radius: 2px;
+}
+
+/* Stopka <Form> (przycisk + status) – wizualnie domyka kartę ze zgodą. */
+.form > :last-child {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: -24px;
+  padding: 0 20px 20px;
+  background: rgba(23, 23, 23, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 0;
+  border-radius: 0 0 2px 2px;
+}
+
+.form button[type="submit"] {
+  gap: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #fff;
+  background: #000;
+  border: 1px solid #fff;
+  border-radius: 6px;
+}
+
+.form button[type="submit"]:hover {
+  background: #111;
+}
+
+/* ---------- Karty i pola ---------- */
+
+.card {
+  padding: 20px;
+  background: rgba(23, 23, 23, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.consentCard {
+  border-bottom: 0;
+  border-radius: 2px 2px 0 0;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  font: 600 16px/1.5 var(--font-albert), sans-serif;
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.field[data-wide] {
+  grid-column: 1 / -1;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #a3a3a3;
+}
+
+.control {
+  width: 100%;
+  min-width: 0;
+  padding: 8px 12px;
+  font: inherit;
+  color: #f5f5f5;
+  background: rgba(23, 23, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.control:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+.control::placeholder {
+  color: #737373;
+}
+
+textarea.control {
+  resize: vertical;
+}
+
+.withIcon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dateTime {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* ---------- Mapa dojazdu ---------- */
+
+.mapGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.mapSide {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mapHelp {
+  font-size: 14px;
+  color: #d4d4d4;
+}
+
+.mapHint {
+  font-size: 12px;
+  line-height: 16px;
+  color: #a3a3a3;
+}
+
+.mapHint strong {
+  color: #e5e5e5;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.files .buttons {
+  gap: 12px;
+}
+
+.mode,
+.clear,
+.outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: inherit;
+  color: #fff;
+  background: #000;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.clear:hover,
+.outline:hover {
+  background: #111;
+}
+
+.mode {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+/* Nieaktywny tryb: biały przycisk; aktywny: ciemny (jak w ipc-serwis-form.css) */
+.mode:not([data-active="true"]) {
+  color: #000;
+  background: #fff;
+  border-color: #000;
+}
+
+.clear {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.outline {
+  padding: 8px 16px;
+}
+
+.outline:focus-within {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  font-size: 12px;
+  color: #d4d4d4;
+  background: rgba(10, 10, 10, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.mapBox {
+  height: 360px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+/* ---------- Załączniki ---------- */
+
+.files {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fileList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.fileCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(10, 10, 10, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.fileIcon {
+  flex-shrink: 0;
+  color: #a3a3a3;
+}
+
+.fileMeta {
+  min-width: 0;
+}
+
+.fileName {
+  overflow: hidden;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.fileSize {
+  font-size: 12px;
+  color: #a3a3a3;
+}
+
+.fileRemove {
+  margin-left: auto;
+  padding: 2px 6px;
+  font: inherit;
+  font-size: 12px;
+  color: #fff;
+  background: #000;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.small {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: #a3a3a3;
+}
+
+/* ---------- Zgoda ---------- */
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #d4d4d4;
+}
+
+.consent input {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* ---------- Prawy panel ---------- */
+
+.asideTitle {
+  margin: 0 0 8px;
+  font: 600 16px/1.5 var(--font-albert), sans-serif;
+  color: #fff;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  color: #e5e5e5;
+}
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.check {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--c-blue);
+}
+
+.note {
+  margin-top: 16px;
+  padding: 12px;
+  font-size: 12px;
+  color: #d4d4d4;
+  background: rgba(23, 23, 23, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+@media (max-width: 1023px) {
+  form.form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aside {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .fileList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .grid,
+  .mapGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .fileList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,32 @@
+/* Układ strony Projekty 3D (Elementor post-36) */
+
+.heroBtn {
+  padding: 12px 24px;
+}
+
+.heroIcon {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+.description {
+  width: 100%;
+  max-width: var(--container);
+  margin: 50px auto;
+  padding: 0 10px;
+}
+
+.projects {
+  width: 88%;
+  margin: 0 auto;
+  padding: 80px 0 60px;
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 767px) {
+  .projects {
+    width: 100%;
+    padding: 40px 16px 40px;
+  }
+}

@@ -1,0 +1,320 @@
+/* Strona /pl/media/ – wartości z post-513.css (Elementor). */
+
+.section {
+  width: min(100% - 32px, 1040px);
+  margin: 80px auto 0;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--c-surface);
+}
+
+.h2 {
+  margin: 0 0 20px;
+  font: 600 32px/1 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.h2Sm {
+  font-size: 25px;
+}
+
+.center {
+  text-align: center;
+}
+
+.text {
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+.text p {
+  margin: 0 0 14.4px;
+}
+
+.text p:last-child {
+  margin-bottom: 0;
+}
+
+.text strong {
+  color: var(--c-text);
+}
+
+/* ---------- Siatki boksów ---------- */
+
+.grid {
+  display: grid;
+  gap: 20px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gridTight {
+  gap: 10px;
+}
+
+.cols2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cols3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cols4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.box {
+  padding: 20px;
+  background: rgba(33, 33, 33, 0.27);
+  border: 1px solid var(--c-surface);
+}
+
+.box h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-albert), sans-serif;
+  font-weight: 600;
+}
+
+.box p {
+  margin: 0;
+  font-family: var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+/* Wyróżniki pod krótkim opisem */
+.highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.highlightIcon {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+
+.highlight p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Fact sheet */
+.fact h3 {
+  font-size: 13px;
+  line-height: 1.2;
+  color: #7a7a7a;
+}
+
+.fact p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Logotypy i materiały */
+.headRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.headRow .h2 {
+  margin: 0;
+}
+
+.kitButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font: 500 15px/1 var(--font-albert), sans-serif;
+  color: var(--c-line);
+  border: 1px solid var(--c-surface);
+  border-radius: 7px;
+  transition: transform 0.2s, background 0.2s, color 0.2s;
+}
+
+.kitButton:hover {
+  color: var(--c-surface);
+  background: var(--c-line);
+}
+
+.kitButton:active {
+  transform: scale(0.95);
+}
+
+.kitIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.download {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.download h3 {
+  font-size: 15px;
+  line-height: 1.2;
+  color: var(--c-text);
+}
+
+.download h3 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.download p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.downloadIcon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+
+.downloadIcon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Osoby do wypowiedzi */
+.person {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.person h3 {
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--c-muted);
+}
+
+.person p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Kamienie milowe */
+.milestone h3 {
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--c-dim);
+}
+
+.milestone p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ---------- Formularz ---------- */
+
+.formSection {
+  width: min(100% - 32px, 1140px);
+  margin: 90px auto 80px;
+}
+
+.formCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(100%, 640px);
+  margin: 0 auto;
+}
+
+.formCard .h2 {
+  margin: 0;
+}
+
+.formIntro,
+.formNote {
+  margin: 0;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+  text-align: center;
+}
+
+.formNote {
+  font-size: 13px;
+}
+
+/* Etykiety pól są w oryginale tylko dla czytników ekranu (widoczne są placeholdery). */
+.form > div > label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.form > div:last-child > button {
+  flex: 1 1 100%;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 1024px) {
+  .cols4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 767px) {
+  .section {
+    margin-top: 50px;
+  }
+
+  .h2 {
+    font-size: 26px;
+  }
+
+  .h2Sm {
+    font-size: 22px;
+  }
+
+  .text {
+    font-size: 15px;
+  }
+
+  .cols2,
+  .cols3,
+  .cols4 {
+    grid-template-columns: 1fr;
+  }
+
+  .headRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .person h3 {
+    font-size: 19px;
+  }
+
+  .formSection {
+    margin-top: 60px;
+  }
+}

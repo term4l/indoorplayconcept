@@ -1,0 +1,138 @@
+/* Wartości z Elementora (post-2142/2149/2157/2166.css) – wszystkie cztery strony mają ten sam układ. */
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-height: 60vh;
+  padding: 40px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--c-surface);
+  opacity: 0.47;
+}
+
+.title {
+  margin: 0;
+  font: 400 18px/1 var(--font-albert), sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--c-text);
+}
+
+.subtitle {
+  margin: 0;
+  font: 600 32px/1 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.lead {
+  width: 50%;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+.lead p {
+  margin: 0 0 0.9rem;
+}
+
+/* ---------- Sekcje ---------- */
+
+.section {
+  margin-top: 50px;
+  border-bottom: 1px solid #333;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(100% - 20px, var(--container));
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  margin: 0;
+  font: 600 32px/1 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.box {
+  padding: 30px;
+  background: rgba(33, 33, 33, 0.26);
+  border: 1px solid var(--c-surface);
+}
+
+/* Nadpisanie typografii Prose do wartości z oryginału (16/24, odstęp akapitów 0.9rem). */
+.box .prose {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--c-muted);
+}
+
+.box .prose p,
+.box .prose ul,
+.box .prose ol {
+  margin: 0 0 0.9rem;
+}
+
+.box .prose li > ul,
+.box .prose li > ol {
+  margin-bottom: 0;
+}
+
+.box .prose ul,
+.box .prose ol {
+  padding-left: 40px;
+}
+
+.box .prose li + li {
+  margin-top: 0;
+}
+
+.box .prose strong {
+  color: inherit;
+}
+
+.box .prose a {
+  color: var(--c-text);
+}
+
+.box .prose a:hover {
+  color: var(--c-soft);
+}
+
+/* ---------- Responsywność ---------- */
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 0 15px 20px;
+  }
+
+  .title,
+  .subtitle {
+    font-size: 25px;
+  }
+
+  .lead {
+    width: 100%;
+    font-size: 13px;
+  }
+}

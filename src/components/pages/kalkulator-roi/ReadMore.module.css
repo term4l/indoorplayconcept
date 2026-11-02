@@ -1,0 +1,113 @@
+/* Port stylów widżetu HTML "czytaj więcej" (Albert Sans, zwinięta wysokość 335/360px) */
+
+.wrap {
+  --collapsed-h: 335px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 46px 56px;
+  font-family: var(--font-albert), sans-serif;
+  color: #fff;
+}
+
+.collapsible {
+  height: var(--collapsed-h);
+  overflow: hidden;
+  transition: height 320ms ease;
+  will-change: height;
+}
+
+.collapsible[data-expanded="true"] {
+  overflow: visible;
+}
+
+.content p,
+.content li {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.content ul {
+  margin: 6px 0 14px 18px;
+  padding: 0;
+}
+
+.content [role="heading"] {
+  margin: 36px 0 12px;
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: #fff;
+}
+
+/* Tytuł główny opisu (w oryginale klasa .title) */
+.content [data-title] {
+  margin: 0 0 16px;
+  font-size: 42px;
+  line-height: 1.15;
+}
+
+.content > [role="heading"]:first-child {
+  margin-top: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 18px;
+  font: 600 16px/1 var(--font-albert), sans-serif;
+  letter-spacing: 0.1px;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 120ms ease, border-color 160ms ease;
+}
+
+.btn:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.35);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    --collapsed-h: 360px;
+    padding: 46px 22px;
+  }
+
+  .content [role="heading"] {
+    font-size: 28px;
+  }
+
+  .content [data-title] {
+    font-size: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collapsible,
+  .btn {
+    transition: none;
+  }
+}

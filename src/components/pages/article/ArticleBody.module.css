@@ -1,0 +1,76 @@
+/* Typografia treści wpisu (blok post content: style motywu Hello Elementor). */
+
+.body {
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  color: #f0f0f0;
+  overflow-wrap: break-word;
+}
+
+.body p {
+  margin: 0 0 0.9rem;
+}
+
+.body h2,
+.body h3,
+.body h4 {
+  margin: 0.5rem 0 1rem;
+  font-family: var(--font-albert), sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #f0f0f0;
+  scroll-margin-top: 90px;
+}
+
+.body h2 {
+  font-size: 2rem;
+}
+
+.body h3 {
+  font-size: 1.75rem;
+}
+
+.body ul,
+.body ol {
+  margin: 0 0 0.9rem;
+  padding-left: 40px;
+}
+
+.body a {
+  color: var(--c-text);
+}
+
+.body a:hover {
+  color: var(--c-soft);
+}
+
+.body strong {
+  font-weight: 700;
+}
+
+/* Tabele (wp-block-table) */
+.table {
+  margin: 0 0 1rem;
+  overflow-x: auto;
+}
+
+.table table {
+  width: 100%;
+  margin-bottom: 15px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.9em;
+}
+
+.table th,
+.table td {
+  padding: 0.5em;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #f0f0f0;
+  line-height: 1.5;
+}
+
+.table th {
+  font-weight: 700;
+  background-color: rgba(128, 128, 128, 0.07);
+}

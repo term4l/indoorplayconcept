@@ -1,0 +1,49 @@
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.text {
+  position: relative;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #d4d4d4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Podczas animacji pełny tekst zostaje w układzie (brak skoku layoutu), ale jest niewidoczny. */
+.text[data-typing] .full,
+.text[data-typing] .full .signature {
+  color: transparent;
+}
+
+.typed {
+  position: absolute;
+  inset: 0;
+}
+
+/* Migający kursor podczas pisania */
+.typed::after {
+  content: "│";
+  display: inline-block;
+  margin-left: 0.08em;
+  animation: twBlink 1s steps(1, end) infinite;
+}
+
+@keyframes twBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Podpis */
+.signature {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 35px;
+  line-height: 1.2;
+  color: #d4d4d4;
+}

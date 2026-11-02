@@ -1,0 +1,292 @@
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 60vh;
+  padding: 40px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #212121;
+  opacity: 0.39;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.kicker {
+  margin: 0 0 14px;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  text-transform: uppercase;
+  color: var(--c-text);
+}
+
+.h1 {
+  margin: 0 0 20px;
+  font: 600 40px/1 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.lead {
+  max-width: 50%;
+  margin: 0;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+/* ---------- Content ---------- */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(100% - 32px, 1140px);
+  margin: 0 auto;
+  padding: 50px 0 60px;
+}
+
+.h2 {
+  margin: 0;
+  font: 600 32px/1 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.intro {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  color: var(--c-muted);
+}
+
+.introContent {
+  font-size: 17px;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+.introContent p {
+  margin: 0 0 1.1em;
+}
+
+.introContent p:last-child {
+  margin-bottom: 0;
+}
+
+.intro[data-collapsed="true"] [data-extra] {
+  display: none;
+}
+
+.intro[data-collapsed="true"] .introContent p:nth-child(2) {
+  margin-bottom: 0;
+}
+
+.introToggle {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 14px;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--c-muted);
+  background: transparent;
+  border: 1px solid #2c2c2c;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.introToggle:hover {
+  background: var(--c-muted);
+  color: #0f0f0f;
+  border-color: var(--c-muted);
+}
+
+.introToggle:active {
+  transform: translateY(1px);
+}
+
+/* ---------- Post grid ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 35px 30px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: rgba(33, 33, 33, 0.26);
+  border: 1px solid rgba(33, 33, 33, 0.153);
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.card:hover .thumb img {
+  transform: scale(1.04);
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  padding: 7px 14px;
+  font: 500 12px/1 var(--font-albert), sans-serif;
+  text-transform: uppercase;
+  color: #212121;
+  background: rgba(212, 212, 212, 0.68);
+  border-radius: 999px;
+}
+
+.cardText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 0 30px;
+}
+
+.cardTitle {
+  margin: 0 0 25px;
+  font: 600 21px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+.cardTitle a:hover {
+  color: #fff;
+}
+
+.excerpt {
+  margin-bottom: 25px;
+  font: 400 14px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+.excerpt p {
+  margin: 0;
+}
+
+.readMore {
+  align-self: flex-start;
+  margin: auto 0 20px;
+  font: 500 12px/1.5 var(--font-albert), sans-serif;
+  text-transform: uppercase;
+  color: var(--c-text);
+}
+
+/* ---------- Pagination & CTA ---------- */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+}
+
+.pageCurrent {
+  color: #838383;
+}
+
+.pageLink {
+  color: var(--c-text);
+}
+
+.pageLink:hover {
+  text-decoration: underline;
+}
+
+.contactCta {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.contactBtn {
+  display: inline-block;
+  padding: 15px 20px;
+  font: 500 15px/1 var(--font-albert), sans-serif;
+  color: #212121;
+  background: var(--c-text);
+  border: 1px solid #e0e0e0;
+  border-radius: 7px;
+  transition: background 0.2s;
+}
+
+.contactBtn:hover {
+  background: #fff;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lead {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: 50vh;
+    padding: 24px 15px;
+  }
+  .h1 {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+  .lead {
+    max-width: none;
+  }
+  .h2 {
+    font-size: 26px;
+  }
+  .intro {
+    padding: 8px 0;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .contactBtn {
+    line-height: 1.3;
+    text-align: center;
+  }
+}

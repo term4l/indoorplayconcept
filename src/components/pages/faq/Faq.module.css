@@ -1,0 +1,177 @@
+/* ---------- Hero (60vh, zdjęcie + overlay #212121 55%) ---------- */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-height: 60vh;
+  padding: 40px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--c-surface);
+  opacity: 0.55;
+}
+
+.heroImage {
+  z-index: -2;
+  object-fit: cover;
+  object-position: center;
+}
+
+.kicker {
+  margin: 0;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  letter-spacing: 3.2px;
+  text-transform: uppercase;
+  color: var(--c-text);
+}
+
+.h1 {
+  width: 50%;
+  margin: 0;
+  font: 600 55px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+.lead {
+  width: 50%;
+  margin: 0;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+/* ---------- Sekcje ---------- */
+
+.container {
+  width: min(100% - 20px, var(--container));
+  margin: 50px auto 0;
+  padding: 10px;
+}
+
+.h2 {
+  margin: 0 0 20px;
+  font: 600 40px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+.intro {
+  font: 400 20px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+.intro p {
+  margin: 0.75rem 0 0;
+}
+
+.faq {
+  margin-bottom: 80px;
+}
+
+.columns {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid var(--c-surface);
+}
+
+.column {
+  display: flex;
+  flex: 1 1 50%;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  padding-bottom: 10px;
+}
+
+/* ---------- Akordeon (<details>, odpowiedź zawsze w HTML) ---------- */
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px;
+  font: 400 17px/1.4 var(--font-albert), sans-serif;
+  color: var(--c-text);
+  background: #21212142;
+  border: 1px solid var(--c-surface);
+  list-style: none;
+  cursor: pointer;
+}
+
+.title::-webkit-details-marker {
+  display: none;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.icon svg {
+  width: 10px;
+  height: 10px;
+}
+
+.opened,
+.item[open] .closed {
+  display: none;
+}
+
+.item[open] .opened {
+  display: block;
+}
+
+.answer {
+  padding: 20px;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 50px 0 20px 20px;
+  }
+
+  .h1 {
+    width: 100%;
+    padding-right: 20px;
+    font-size: 28px;
+  }
+
+  .lead {
+    width: 90%;
+    font-size: 14px;
+  }
+
+  .h2 {
+    font-size: 25px;
+  }
+
+  .intro {
+    font-size: 15px;
+  }
+
+  .columns {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+}

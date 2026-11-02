@@ -1,0 +1,158 @@
+/* Karuzela (zamiennik Swipera z Elementora). Desktop: slajdy to zwykłe elementy układu z klasy toru. */
+
+.root {
+  position: relative;
+}
+
+/* Na desktopie opakowanie slajdu nie wpływa na układ siatki/kolumny. */
+.slide {
+  display: contents;
+}
+
+.arrow,
+.dots {
+  display: none;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 44px;
+  padding: 0;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.arrow svg {
+  width: 25px;
+  height: 25px;
+  fill: currentColor;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.dots {
+  justify-content: center;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  background: #fff;
+  border: 0;
+  border-radius: 50%;
+  opacity: 0.2;
+  cursor: pointer;
+}
+
+.dot[aria-current] {
+  opacity: 1;
+}
+
+/* ---------- Tryb karuzeli ---------- */
+
+@media (max-width: 1024px) {
+  .root[data-below="tablet"] {
+    padding: 0 36px;
+  }
+
+  .root[data-below="tablet"] .track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .root[data-below="tablet"] .track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .root[data-below="tablet"] .slide {
+    display: flex;
+    flex: 0 0 calc(50% - 8px);
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+
+  .root[data-below="tablet"] .slide > * {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .root[data-below="tablet"] .arrow,
+  .root[data-below="tablet"] .dots {
+    display: flex;
+  }
+}
+
+@media (max-width: 767px) {
+  .root[data-below] {
+    padding: 0 36px;
+  }
+
+  .root[data-below] .track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .root[data-below] .track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .root[data-below] .slide {
+    display: flex;
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+
+  .root[data-below] .slide > * {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .root[data-below] .arrow,
+  .root[data-below] .dots {
+    display: flex;
+  }
+
+  .root[data-arrows="outside"] {
+    padding: 0 28px;
+  }
+
+  .root[data-arrows="outside"] .arrow {
+    width: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    scroll-behavior: auto;
+  }
+}

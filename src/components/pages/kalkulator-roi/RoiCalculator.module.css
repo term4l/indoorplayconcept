@@ -1,0 +1,236 @@
+/* Port ipc-roi-calculator.css (bez teł kontenerów – jak w wersjach shortcode form/results) */
+
+.form,
+.results {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #e5e7eb;
+}
+
+.results {
+  margin-top: 2rem;
+}
+
+.card {
+  margin-bottom: 1rem;
+  padding: 1rem 1.1rem;
+  background: #0f0f0f;
+  border: 1px solid #262626;
+  border-radius: 0.75rem;
+}
+
+.form h2 {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #e5e7eb;
+}
+
+.card label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.82rem;
+  color: #e5e7eb;
+}
+
+.card input[type="number"],
+.card input[type="text"],
+.card input[type="email"] {
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+  font-size: 0.9rem;
+  color: #f9fafb;
+  background: #262626;
+  border: 1px solid #3f3f46;
+  border-radius: 0.35rem;
+}
+
+.card input:focus {
+  border-color: #e5e7eb;
+  outline: none;
+}
+
+.help {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #a3a3a3;
+}
+
+.helpText {
+  margin: -0.3rem 0 0.7rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #a3a3a3;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .grid2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Wyniki */
+
+.resultsGrid {
+  margin-top: 0.5rem;
+}
+
+.cardResult {
+  min-height: 170px;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a3a3a3;
+}
+
+.value {
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.value[data-profit="positive"] {
+  color: #4ade80;
+}
+
+.value[data-profit="negative"] {
+  color: #f97373;
+}
+
+.valueBig {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 0.9rem 0;
+  background: #262626;
+}
+
+.small {
+  margin: 0.5rem 0 0;
+  font-size: 0.78rem;
+  color: #a3a3a3;
+}
+
+.cardCenter {
+  max-width: 580px;
+  margin: 1.5rem auto 0;
+  text-align: center;
+}
+
+/* E-mail z wynikiem */
+
+.emailRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+}
+
+.card .emailRow input[type="email"] {
+  flex: 1 1 260px;
+  min-width: 220px;
+  max-width: 420px;
+  margin-top: 0;
+}
+
+.emailBtn {
+  flex: 0 0 auto;
+  padding: 0.55rem 0.85rem;
+  font: inherit;
+  font-size: 0.9rem;
+  color: #000;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.emailBtn:hover {
+  background: #f5f5f5;
+}
+
+.emailBtn:active {
+  background: #eee;
+}
+
+.emailBtn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #000;
+}
+
+.emailBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.card .consent {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  max-width: 420px;
+  margin: 0.75rem auto 0;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-align: left;
+  color: #a3a3a3;
+}
+
+.consent input {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.consent a {
+  text-decoration: underline;
+}
+
+.status {
+  min-height: 1.1em;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.status[data-variant="success"] {
+  color: #4ade80;
+}
+
+.status[data-variant="error"] {
+  color: #f97373;
+}
+
+.status[data-variant="info"] {
+  color: #a3a3a3;
+}
+
+@media (max-width: 767px) {
+  .card input[type="number"],
+  .card input[type="text"],
+  .card input[type="email"] {
+    font-size: 16px; /* bez auto-zoomu na iOS */
+  }
+}
