@@ -263,6 +263,16 @@ export const pages = {
     readingTime: "3 minuty",
     hreflang: {pl: "/pl/malpi-gaj-w-hotelu-pastelowy-raj/", en: "/en/childrens-indoor-playground-in-a-hotel-pastel-paradise/", de: "/de/softplay-im-hotel-pastellparadies/", nl: "/nl/softplay-in-een-hotel-pastelparadijs/", fr: "/fr/aire-de-jeux-soft-play-a-lhotel-paradis-pastel/", es: "/es/zona-de-soft-play-en-hotel-paraiso-pastel/"},
   },
+  "mapa-strony": {
+    path: "/pl/mapa-strony/",
+    title: "Mapa strony - IndoorPlayConcept",
+    description: "Mapa strony Indoor Play Concept: wszystkie podstrony, usługi, projekty sal zabaw i artykuły Play Magazine w jednym miejscu.",
+    breadcrumb: "Mapa strony",
+    datePublished: "2026-11-23T12:00:00+00:00",
+    dateModified: "2026-11-23T12:00:00+00:00",
+    ogType: "website",
+    hreflang: {pl: "/pl/mapa-strony/"},
+  },
   "marketing-sali-zabaw-plan-dzialan-od-koncepcji-do-regularnych-powrotow": {
     path: "/pl/marketing-sali-zabaw-plan-dzialan-od-koncepcji-do-regularnych-powrotow/",
     title: "Marketing sali zabaw: plan działań od koncepcji do…",

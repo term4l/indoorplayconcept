@@ -1,0 +1,89 @@
+/* Strona /pl/mapa-strony/ – układ jak boksy na Kariera/Dostawcy (ramka 1px #212121, tło rgba(33,33,33,.27)). */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: min(100% - 20px, var(--container));
+  margin: 50px auto 80px;
+}
+
+.groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.group {
+  padding: 20px;
+  background: rgba(33, 33, 33, 0.27);
+  border: 1px solid var(--c-surface);
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.title {
+  margin: 0 0 12px;
+  font: 600 17px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-text);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wide .list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 40px;
+}
+
+.list a {
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+  transition: color 0.2s;
+}
+
+.list a:hover {
+  color: var(--c-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.note {
+  margin: 0;
+  font: 400 14px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-dim);
+}
+
+.note a {
+  color: var(--c-muted);
+}
+
+.note a:hover {
+  color: var(--c-text);
+}
+
+@media (max-width: 1024px) {
+  .groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    width: min(100% - 32px, var(--container));
+  }
+
+  .groups,
+  .wide .list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -131,6 +131,7 @@ export function DostawcyView() {
             submitLabel="Wyślij Zapytanie"
             successMessage="Dziękujemy! Zgłoszenie zostało wysłane – odezwiemy się po weryfikacji."
             className={styles.form}
+            compact
           >
             {textFields.map(({ name, label, type = "text", autoComplete, full }) => (
               <TextField key={name} label={label} name={name} type={type} placeholder={label} autoComplete={autoComplete} full={full} required />

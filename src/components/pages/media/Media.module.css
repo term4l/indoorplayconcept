@@ -1,10 +1,17 @@
 /* Strona /pl/media/ – wartości z post-513.css (Elementor). */
 
+/* Sekcje jak kontenery Elementora: linia oddzielająca przez całą szerokość ekranu,
+   treść na 90 % szerokości (1728 px przy 1920), linia 50 px pod treścią, kolejna sekcja 80 px niżej. */
 .section {
-  width: min(100% - 32px, 1040px);
-  margin: 80px auto 0;
-  padding-bottom: 30px;
+  width: 100%;
+  margin: 80px 0 0;
+  padding: 0 5% 50px;
   border-bottom: 1px solid var(--c-surface);
+}
+
+/* Pierwsza sekcja ma w oryginale kontener z paddingiem 10 px i treść 90 % jego wnętrza (1710 px). */
+.history {
+  padding: 10px calc(5% + 9px);
 }
 
 .h2 {
@@ -238,7 +245,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: min(100%, 640px);
+  width: min(100%, 741px);
   margin: 0 auto;
 }
 
@@ -268,8 +275,10 @@
   white-space: nowrap;
 }
 
-.form > div:last-child > button {
-  flex: 1 1 100%;
+/* Pola formularza prasowego: bez tła, zaokrąglenie 3 px (reszta z wariantu compact). */
+.form {
+  --field-radius: 3px;
+  --field-bg: transparent;
 }
 
 /* ---------- Tablet ---------- */
@@ -285,6 +294,11 @@
 @media (max-width: 767px) {
   .section {
     margin-top: 50px;
+    padding: 0 16px 30px;
+  }
+
+  .history {
+    padding: 10px 16px;
   }
 
   .h2 {

@@ -73,11 +73,13 @@ export function KarieraView() {
         <h2 className={styles.h2}>DLACZEGO WARTO</h2>
         <Tiles items={whyUs} />
       </section>
+      <hr className={styles.divider} />
 
       <section className={styles.section}>
         <h2 className={styles.h2}>Jak wygląda rekrutacja</h2>
         <Tiles items={recruitmentSteps} />
       </section>
+      <hr className={styles.divider} />
 
       <section className={`${styles.section} ${styles.offers}`}>
         <h2 className={styles.h2}>Aktualne oferty</h2>

@@ -12,10 +12,12 @@ type Props = {
   submitLabel: string;
   successMessage?: string;
   className?: string;
+  /** Pola 40 px, odstępy 10 px, przycisk na całą szerokość – jak formularze Elementora (dostawcy, media). */
+  compact?: boolean;
   children: ReactNode;
 };
 
-export function Form({ formId, submitLabel, successMessage = "Dziękujemy! Wiadomość została wysłana.", className, children }: Props) {
+export function Form({ formId, submitLabel, successMessage = "Dziękujemy! Wiadomość została wysłana.", className, compact, children }: Props) {
   const [status, setStatus] = useState<Status>({ state: "idle" });
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -34,7 +36,7 @@ export function Form({ formId, submitLabel, successMessage = "Dziękujemy! Wiado
   }
 
   return (
-    <form className={[styles.form, className].filter(Boolean).join(" ")} onSubmit={onSubmit} noValidate={false}>
+    <form className={[styles.form, className].filter(Boolean).join(" ")} data-compact={compact || undefined} onSubmit={onSubmit} noValidate={false}>
       {children}
 
       {/* Honeypot – ukryte pole, które wypełniają tylko boty. */}

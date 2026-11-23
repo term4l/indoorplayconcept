@@ -65,7 +65,7 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
       { label: "Polityka prywatności", href: "/pl/polityka-prywatnosci/" },
       { label: "Polityka cookies", href: "/pl/polityka-plikow-cookies/" },
       { label: "Regulamin serwisu", href: "/pl/regulamin-serwisu/" },
-      { label: "Mapa strony", href: "/sitemap.xml" },
+      { label: "Mapa strony", href: "/pl/mapa-strony/" },
       { label: "Deklaracja Dostępności", href: "/pl/deklaracja-dostepnosci/" },
     ],
   },

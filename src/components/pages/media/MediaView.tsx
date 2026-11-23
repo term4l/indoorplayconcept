@@ -199,6 +199,7 @@ export function MediaView() {
             submitLabel="Wyślij Zapytanie"
             successMessage="Dziękujemy! Zapytanie zostało wysłane – odezwiemy się wkrótce."
             className={styles.form}
+            compact
           >
             <TextField label="Imię i nazwisko" name="name" placeholder="Imię i nazwisko" autoComplete="name" required />
             <TextField label="Redakcja / portal" name="outlet" placeholder="Redakcja / portal" autoComplete="organization" required />
