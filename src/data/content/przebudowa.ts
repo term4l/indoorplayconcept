@@ -18,6 +18,7 @@ export const przebudowaContent: ServicePageContent = {
   },
   sections: [
     {
+      divider: true,
       blocks: [
         { type: "heading", title: "Dlaczego przebudować strefę zabaw? " },
         {
@@ -76,6 +77,7 @@ export const przebudowaContent: ServicePageContent = {
       ],
     },
     {
+      divider: true,
       blocks: [
         { type: "heading", title: "Zakres usług przebudowy " },
         {
@@ -166,6 +168,7 @@ export const przebudowaContent: ServicePageContent = {
       ],
     },
     {
+      divider: true,
       blocks: [
         { type: "heading", title: "Najczęściej zadawane pytania " },
         {

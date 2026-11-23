@@ -17,6 +17,7 @@ export const serwisContent: ServicePageContent = {
   },
   sections: [
     {
+      divider: true,
       blocks: [
         { type: "heading", title: "Serwis to zabezpieczenie Twojej inwestycji" },
         {
@@ -135,6 +136,7 @@ export const serwisContent: ServicePageContent = {
       ],
     },
     {
+      divider: true,
       blocks: [
         { type: "heading", title: "Dlaczego właściciele wybierają serwis IPC " },
         {
@@ -159,6 +161,7 @@ export const serwisContent: ServicePageContent = {
       ],
     },
     {
+      divider: true,
       blocks: [
         { type: "heading", title: "Pakiety serwisowe sal zabaw" },
         {
@@ -189,6 +192,7 @@ export const serwisContent: ServicePageContent = {
       ],
     },
     {
+      divider: true,
       blocks: [
         { type: "heading", title: "Kiedy warto zamówić serwis? " },
         {
@@ -274,6 +278,7 @@ export const serwisContent: ServicePageContent = {
       ],
     },
     {
+      divider: true,
       blocks: [
         { type: "heading", title: "Zgłoszenie serwisowe sali zabaw — krok po kroku " },
         {

@@ -102,7 +102,8 @@ export type ProseBlock = {
 
 export type FaqItem = { question: string; answer: Rich };
 
-export type FaqBlock = { type: "faq"; columns: FaqItem[][] };
+/** `plain` – tytuły pytań bez przyciemnionego tła (montaż); domyślnie tło rgba(33,33,33,.27) jak na serwisie i przebudowie. */
+export type FaqBlock = { type: "faq"; columns: FaqItem[][]; plain?: boolean };
 
 export type NumberedBlock = { type: "numbered"; items: Rich[] };
 
@@ -125,8 +126,11 @@ export type Block =
   | StepsBlock
   | ButtonsBlock;
 
-/** Sekcja = grupa bloków z odstępem 20px; między sekcjami 50px (jak w Elementorze). */
-export type ServiceSection = { id?: string; blocks: Block[] };
+/**
+ * Sekcja = grupa bloków z odstępem 20px; między sekcjami 50px (jak w Elementorze).
+ * `divider` – linia 1px #212121 na całą szerokość tuż pod sekcją (kontenery Elementora z border-bottom).
+ */
+export type ServiceSection = { id?: string; blocks: Block[]; divider?: boolean };
 
 export type ServicePageContent = {
   hero: HeroBlock;

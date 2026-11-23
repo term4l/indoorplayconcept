@@ -1,7 +1,8 @@
 import Image from "next/image";
-import type { CSSProperties, ReactNode } from "react";
+import { Fragment, type CSSProperties, type ReactNode } from "react";
 import { AppLink } from "@/components/AppLink";
 import { Counter } from "./Counter";
+import { Disclosure } from "./Disclosure";
 import { ServiceIcon } from "./icons";
 import type {
   Block,
@@ -225,19 +226,24 @@ function ToggleIcons() {
 
 function Faq({ block }: { block: FaqBlock }) {
   return (
-    <div className={styles.faq}>
+    <div className={styles.faq} data-plain={block.plain || undefined}>
       {block.columns.map((column, i) => (
         <div key={i} className={styles.faqColumn}>
           {column.map((item) => (
-            <details key={item.question} className={styles.details}>
-              <summary className={styles.summary}>
-                <span className={styles.question}>{item.question}</span>
-                <ToggleIcons />
-              </summary>
-              <div className={styles.answer}>
-                <RichText value={item.answer} />
-              </div>
-            </details>
+            <Disclosure
+              key={item.question}
+              className={styles.details}
+              summaryClassName={styles.summary}
+              summary={
+                <>
+                  <span className={styles.question}>{item.question}</span>
+                  <ToggleIcons />
+                </>
+              }
+              bodyClassName={styles.answer}
+            >
+              <RichText value={item.answer} />
+            </Disclosure>
           ))}
         </div>
       ))}
@@ -269,23 +275,29 @@ function Steps({ block }: { block: StepsBlock }) {
     <div className={styles.steps}>
       <div>
         {block.items.map((step, i) => (
-          <details key={step.title} className={styles.details}>
-            <summary className={styles.summary} data-variant="step">
-              <span className={styles.stepHeader}>
-                <span className={styles.stepNumber}>{i + 1}</span> {step.title}
-                <br />
-                <span className={styles.stepSubtitle}>{step.subtitle}</span>
-              </span>
-              <ToggleIcons />
-            </summary>
-            <div className={styles.answer}>
-              {step.body.map((p, j) => (
-                <p key={j}>
-                  <RichText value={p} />
-                </p>
-              ))}
-            </div>
-          </details>
+          <Disclosure
+            key={step.title}
+            className={styles.details}
+            summaryClassName={styles.summary}
+            summaryVariant="step"
+            summary={
+              <>
+                <span className={styles.stepHeader}>
+                  <span className={styles.stepNumber}>{i + 1}</span> {step.title}
+                  <br />
+                  <span className={styles.stepSubtitle}>{step.subtitle}</span>
+                </span>
+                <ToggleIcons />
+              </>
+            }
+            bodyClassName={styles.answer}
+          >
+            {step.body.map((p, j) => (
+              <p key={j}>
+                <RichText value={p} />
+              </p>
+            ))}
+          </Disclosure>
         ))}
       </div>
       <div className={styles.pills}>
@@ -342,9 +354,12 @@ export function ServicePage({ content }: { content: ServicePageContent }) {
     <div className={styles.page}>
       <Hero hero={content.hero} />
       {content.sections.map((section, i) => (
-        <section key={i} id={section.id} className={styles.section}>
-          {section.blocks.map(renderBlock)}
-        </section>
+        <Fragment key={i}>
+          <section id={section.id} className={styles.section}>
+            {section.blocks.map(renderBlock)}
+          </section>
+          {section.divider && <hr className={styles.divider} />}
+        </Fragment>
       ))}
     </div>
   );

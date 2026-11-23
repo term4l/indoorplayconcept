@@ -78,6 +78,14 @@
   margin: 50px auto 0;
 }
 
+/* Linia pod sekcją: kontener Elementora z border-bottom 1px #212121 na całą szerokość, treść tuż nad linią. */
+.divider {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--c-surface);
+}
+
 .heading {
   display: flex;
   flex-direction: column;
@@ -181,6 +189,13 @@
 .card[data-tone="amber"],
 .card[data-tone="green"] {
   gap: 10px;
+}
+
+.card[data-tone="blue"] .button,
+.card[data-tone="amber"] .button,
+.card[data-tone="green"] .button {
+  color: var(--c-text);
+  border-color: var(--c-dim);
 }
 
 .card[data-tone="blue"] {
@@ -427,14 +442,20 @@ h2.prose {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 10px;
   padding: 15px 20px;
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.3;
-  color: var(--c-text);
-  border-bottom: 1px solid var(--c-surface);
+  color: var(--c-muted);
+  background: rgba(33, 33, 33, 0.27);
+  border: 1px solid var(--c-surface);
   list-style: none;
   cursor: pointer;
+}
+
+/* Montaż: tytuły pytań bez tła (jak w oryginale). */
+.faq[data-plain] .summary {
+  background: transparent;
 }
 
 .summary::-webkit-details-marker {
@@ -445,6 +466,7 @@ h2.prose {
   padding: 10px;
   font-size: 16px;
   line-height: 1.5;
+  background: transparent;
 }
 
 .question {

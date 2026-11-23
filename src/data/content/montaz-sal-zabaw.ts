@@ -17,6 +17,7 @@ export const montazContent: ServicePageContent = {
   },
   sections: [
     {
+      divider: true,
       blocks: [
         { type: "heading", title: "Nasze atuty montażowe" },
         {
@@ -30,6 +31,7 @@ export const montazContent: ServicePageContent = {
       ],
     },
     {
+      divider: true,
       blocks: [
         { type: "heading", title: "Dlaczego wybrać IPC? " },
         {
@@ -146,6 +148,7 @@ export const montazContent: ServicePageContent = {
       ],
     },
     {
+      divider: true,
       blocks: [
         {
           type: "heading",
@@ -207,10 +210,12 @@ export const montazContent: ServicePageContent = {
       ],
     },
     {
+      divider: true,
       blocks: [
         { type: "heading", title: "Najczęstsze pytania o montaż sal zabaw" },
         {
           type: "faq",
+          plain: true,
           columns: [
             [
               {
@@ -269,6 +274,7 @@ export const montazContent: ServicePageContent = {
       ],
     },
     {
+      divider: true,
       blocks: [
         { type: "heading", title: "Nie znalazłeś odpowiedzi na swoje pytania dotyczące montażu? ", align: "center" },
         {
