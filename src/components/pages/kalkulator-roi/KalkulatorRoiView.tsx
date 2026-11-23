@@ -65,6 +65,7 @@ export function KalkulatorRoiView() {
     <>
       <PageHero
         image={HERO_IMAGE}
+        imagePosition="0 0"
         kicker="KALKULATOR ROI"
         title="Kalkulator zwrotu z inwestycji"
         lead="Podaj własne założenia. Zobacz szacunkowe przychody, koszty i orientacyjny czas zwrotu inwestycji."

@@ -11,14 +11,16 @@ type PageHeroProps = {
   lead?: ReactNode;
   /** Zdjęcie w tle (lokalne z /public lub z indoorplayconcept.com). Bez zdjęcia hero jest kompaktowe. */
   image?: string;
+  /** object-position zdjęcia (background-position z Elementora); domyślnie środek. */
+  imagePosition?: string;
   align?: "left" | "center";
   children?: ReactNode;
 };
 
-export function PageHero({ title, kicker, lead, image, align = "left", children }: PageHeroProps) {
+export function PageHero({ title, kicker, lead, image, imagePosition, align = "left", children }: PageHeroProps) {
   return (
     <section className={styles.hero} data-has-image={Boolean(image)} data-size={image ? "full" : "compact"} data-align={align}>
-      {image && <Image src={image} alt="" fill priority sizes="100vw" className={styles.heroImage} />}
+      {image && <Image src={image} alt="" fill priority sizes="100vw" className={styles.heroImage} style={{ objectPosition: imagePosition }} />}
       <div className={styles.heroInner}>
         {kicker && <p className={styles.kicker}>{kicker}</p>}
         <h1 className={styles.h1}>{title}</h1>

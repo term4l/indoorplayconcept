@@ -7,6 +7,7 @@ export const montazContent: ServicePageContent = {
   hero: {
     type: "hero",
     image: "https://indoorplayconcept.com/wp-content/uploads/2025/12/Montaz-Soft-Play.webp",
+    imagePosition: "0 0",
     kicker: "montaż sal zabaw",
     h1: "kicker",
     kickerStyle: "label",

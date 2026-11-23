@@ -1,12 +1,12 @@
 import Image from "next/image";
 import styles from "./Magazine.module.css";
 
-type Props = { kicker: string; heading: string; lead: string; image: string };
+type Props = { kicker: string; heading: string; lead: string; image: string; imagePosition?: string };
 
-export function Hero({ kicker, heading, lead, image }: Props) {
+export function Hero({ kicker, heading, lead, image, imagePosition }: Props) {
   return (
     <section className={styles.hero}>
-      <Image src={image} alt="" fill priority sizes="100vw" className={styles.heroImage} />
+      <Image src={image} alt="" fill priority sizes="100vw" className={styles.heroImage} style={{ objectPosition: imagePosition }} />
       <div className={styles.heroContent}>
         <p className={styles.kicker}>{kicker}</p>
         <h1 className={styles.h1}>{heading}</h1>

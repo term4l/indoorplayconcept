@@ -20,6 +20,8 @@ export type LinkItem = {
 export type HeroBlock = {
   type: "hero";
   image: string;
+  /** object-position zdjęcia (background-position z Elementora); domyślnie środek. */
+  imagePosition?: string;
   kicker: string;
   /** Który element jest <h1>: mały nadtytuł (montaż, serwis) czy duży tytuł (przebudowa). */
   h1: "kicker" | "title";

@@ -18,6 +18,8 @@ export const magazinePage = {
     heading: "Wiedza, która pomaga podejmować lepsze decyzje",
     lead: "Z doświadczenia, nie z teorii. O utrzymaniu, bezpieczeństwie i codziennych decyzjach, które decydują o trwałości i jakości obiektu.",
     image: "https://indoorplayconcept.com/wp-content/uploads/2025/12/Information-Magazine.webp",
+    // background-position z Elementora: domyślne (lewy górny róg)
+    imagePosition: "0 0",
   },
   sectionHeading: "News Magazine",
   intro: [

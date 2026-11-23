@@ -10,8 +10,8 @@ type Props = {
 };
 
 /**
- * Niski nagłówek strony (min. 20vh) używany na /o-nas/, /media/ i /dostawcy/ –
- * w oryginale ten sam kontener Elementora: nadtytuł, <h1> i lead na połowę szerokości.
+ * Nagłówek strony używany na /o-nas/, /media/ i /dostawcy/ – w oryginale ten sam kontener Elementora:
+ * nadtytuł, <h1> i lead na połowę szerokości; bez zdjęcia min. 20vh, ze zdjęciem w tle 60vh (jak pozostałe hero).
  */
 export function PageIntro({ kicker, title, lead, image }: Props) {
   return (

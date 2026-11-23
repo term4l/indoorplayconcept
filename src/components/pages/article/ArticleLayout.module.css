@@ -14,6 +14,8 @@
 
 .heroImage {
   object-fit: cover;
+  /* Elementor: background-position domyślne (lewy górny róg) – widać górę zdjęcia, nie środek. */
+  object-position: 0 0;
 }
 
 /* ---------- Kolumny: nagłówek (sticky) + treść ---------- */

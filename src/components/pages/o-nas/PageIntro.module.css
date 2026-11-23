@@ -15,6 +15,10 @@
   z-index: -2;
 }
 
+.intro[data-has-image="true"] {
+  min-height: 60vh;
+}
+
 .intro[data-has-image="true"]::before {
   content: "";
   position: absolute;
@@ -29,8 +33,6 @@
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  max-width: var(--container);
-  margin: 0 auto;
 }
 
 .kicker {
@@ -40,7 +42,8 @@
 }
 
 .title {
-  margin: 0;
+  /* Elementor: nadtytuł → tytuł 35px, tytuł → lead 20px (gap kontenera). */
+  margin: 15px 0 0;
   font: 600 40px/1 var(--font-albert), sans-serif;
   color: var(--c-text);
 }

@@ -119,6 +119,7 @@ export function Projekty3dView() {
     <>
       <PageHero
         image={HERO_IMAGE}
+        imagePosition="0 -182px"
         kicker="Sale Zabaw - WYBIERAJ ŚWIADOMIE"
         title="Sale Zabaw Projekty 3D"
         lead="Gotowe koncepcje wewnętrznych placów zabaw – stworzone z myślą o inwestorach. Wybierz projekt, który dopasujemy lub przeprojektujemy pod Twoją przestrzeń i budżet, z pełnym wsparciem na każdym etapie."

@@ -43,7 +43,7 @@ function Hero({ hero }: { hero: HeroBlock }) {
   const Title = hero.h1 === "title" ? "h1" : "h2";
   return (
     <section className={styles.hero} style={{ "--title-size": px(hero.titleSize) } as Vars}>
-      <Image src={hero.image} alt="" fill priority sizes="100vw" className={styles.heroImage} />
+      <Image src={hero.image} alt="" fill priority sizes="100vw" className={styles.heroImage} style={{ objectPosition: hero.imagePosition }} />
       <Kicker className={styles.kicker} data-style={hero.kickerStyle}>
         {hero.kicker}
       </Kicker>
