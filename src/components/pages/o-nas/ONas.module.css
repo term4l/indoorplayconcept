@@ -180,6 +180,8 @@
   background: rgba(33, 33, 33, 0.27);
   border: 1px solid var(--c-surface);
   border-radius: 4px;
+  /* Poświata wokół ramki jak w kontenerze Elementora (8c034e4). */
+  box-shadow: 0 0 10px 5px rgba(33, 33, 33, 0.64);
 }
 
 .offerIntro {
