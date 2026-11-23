@@ -15,7 +15,7 @@ import {
   type Path,
   type PathId,
 } from "@/data/content/strefa-klienta";
-import { LucideIcon, type LucideName } from "./icons";
+import { LucideIcon, type LucideName } from "@/components/LucideIcon";
 import styles from "./CooperationMap.module.css";
 
 /*

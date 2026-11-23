@@ -214,6 +214,16 @@ export const pages = {
     article: {"headline": "Kolory w sali zabaw: jak dobrać światło i materiały bez przebodźcowania", "author": "admin", "authorId": "https://indoorplayconcept.com/pl/#/schema/person/3f6067ddfc89b8e2b19181aea889437c", "wordCount": 911, "articleSection": ["wewnętrzne place zabaw"], "publishedTime": "2026-07-13T10:00:43+00:00"},
     hreflang: {pl: "/pl/kolory-w-sali-zabaw-jak-dobrac-swiatlo-i-materialy-bez-przebodzcowania/", en: "/en/colours-in-an-indoor-playground-choosing-lighting-and-materials-without/", de: "/de/farben-im-indoor-spielplatz-licht-und-materialien-ohne-reizuberflutung/", nl: "/nl/kleuren-in-een-binnenspeeltuin-licht-en-materialen-kiezen-zonder/", fr: "/fr/couleurs-dans-une-aire-de-jeux-interieure-choisir-lumiere-et-materiaux/", es: "/es/colores-en-un-parque-infantil-interior-elegir-luz-y-materiales-sin/"},
   },
+  "konsultacja": {
+    path: "/pl/konsultacja/",
+    title: "Projektowanie sal zabaw 3D online | IPC Planner 3D",
+    description: "Zaprojektuj salę zabaw, park trampolin lub tor Ninja w IPC Planner 3D. Wprowadź wymiary hali, wybierz atrakcje i sprawdzaj ceny wyposażenia.",
+    breadcrumb: "IPC Planner 3D",
+    datePublished: "2026-11-24T12:00:00+00:00",
+    dateModified: "2026-11-24T12:00:00+00:00",
+    ogType: "website",
+    hreflang: {pl: "/pl/konsultacja/"},
+  },
   "kontakt": {
     path: "/pl/kontakt/",
     title: "Kontakt – Indoor Playground Concept producent wewnętrznych placów zabaw | IndoorPlayConcept",

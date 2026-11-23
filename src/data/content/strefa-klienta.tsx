@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { LucideName } from "@/components/pages/strefa-klienta/icons";
+import type { LucideName } from "@/components/LucideIcon";
 
 /*
  * Strefa Klienta – interaktywna mapa pierwszej współpracy z Indoor Play Concept.

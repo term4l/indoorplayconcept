@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
         ["/projekty-3d/", "/pl/sale-zabaw-projekty-3d/"],
         ["/o-nas/", "/pl/o-nas/"],
         ["/kontakt/", "/pl/kontakt/"],
+        ["/konsultacja/", "/pl/konsultacja/"],
         ["/montaz/", "/pl/montaz-sal-zabaw/"],
         ["/serwis/", "/pl/serwis-sal-zabaw/"],
         ["/przebudowa/", "/pl/przebudowa/"],
