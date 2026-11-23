@@ -320,6 +320,15 @@ export const pages = {
     article: {"headline": "Serwis sali zabaw: procedura, materiały i dokumentacja bezpiecznego obiektu", "author": "admin", "authorId": "https://indoorplayconcept.com/pl/#/schema/person/3f6067ddfc89b8e2b19181aea889437c", "wordCount": 1206, "articleSection": ["wewnętrzne place zabaw"], "publishedTime": "2026-07-23T10:00:00+00:00"},
     hreflang: {pl: "/pl/serwis-sali-zabaw-procedura-materialy-i-dokumentacja-bezpiecznego/", en: "/en/indoor-playground-service-procedures-materials-and-documentation-for-a/", de: "/de/service-fur-indoor-spielplatze-ablaufe-materialien-und-dokumentation/", nl: "/nl/service-voor-binnenspeeltuinen-procedures-materialen-en-documentatie/", fr: "/fr/maintenance-dune-aire-de-jeux-interieure-procedures-materiaux-et/", es: "/es/servicio-de-parques-infantiles-interiores-procedimientos-materiales-y/"},
   },
+  "strefa-klienta": {
+    path: "/pl/strefa-klienta/",
+    title: "Strefa Klienta - IndoorPlayConcept",
+    breadcrumb: "Strefa Klienta",
+    datePublished: "2025-12-19T18:24:40+00:00",
+    dateModified: "2026-02-04T19:12:53+00:00",
+    readingTime: "1 minuta",
+    hreflang: {pl: "/pl/strefa-klienta/", en: "/en/customer-zone/", de: "/de/kundenbereich/", nl: "/nl/klantenomgeving/", fr: "/fr/espace-client/", es: "/es/area-de-clientes/"},
+  },
   "tematyczna-sala-zabaw-zamek": {
     path: "/pl/tematyczna-sala-zabaw-zamek/",
     title: "Tematyczna Sala Zabaw – Zamek - IndoorPlayConcept",
@@ -355,6 +364,17 @@ export const pages = {
     primaryImage: "https://indoorplayconcept.com/wp-content/uploads/2026/02/PD-PA003-768x432.webp",
     readingTime: "4 minuty",
     hreflang: {pl: "/pl/wewnetrzne-sale-zabaw/", en: "/en/indoor-play-centers/", de: "/de/indoor-spielzentrum-wasserhai/", nl: "/nl/indoor-speelcentrum-waterhaai/", fr: "/fr/salle-de-jeux-interieure-requin-aquatique/", es: "/es/sala-de-juego-interior-tiburon-acuatico/"},
+  },
+  "wewnetrzny-plac-zabaw-w-hotelu": {
+    path: "/pl/wewnetrzny-plac-zabaw-w-hotelu/",
+    title: "Wewnętrzny plac zabaw w hotelu - IndoorPlayConcept",
+    breadcrumb: "Wewnętrzny plac zabaw w hotelu",
+    datePublished: "2026-02-04T17:17:01+00:00",
+    dateModified: "2026-02-04T21:10:08+00:00",
+    ogImage: "https://indoorplayconcept.com/wp-content/uploads/2026/02/PM-PA001-2-768x432.webp",
+    primaryImage: "https://indoorplayconcept.com/wp-content/uploads/2026/02/PM-PA001-2-768x432.webp",
+    readingTime: "3 minuty",
+    hreflang: {pl: "/pl/wewnetrzny-plac-zabaw-w-hotelu/", en: "/en/indoor-playground-in-a-hotel/", de: "/de/indoor-spielplatz-im-hotel/", nl: "/nl/indoor-speeltuin-in-een-hotel-2/", fr: "/fr/aire-de-jeux-interieure-dans-un-hotel/", es: "/es/parque-infantil-interior-en-un-hotel/"},
   },
   "wewnetrzny-plac-zabaw-w-kregielni": {
     path: "/pl/wewnetrzny-plac-zabaw-w-kregielni/",

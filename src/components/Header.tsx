@@ -10,7 +10,7 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link href="/pl/" className={styles.logo}>
+        <Link href="/pl/" className={styles.logo} plain>
           <Image src="/images/logo.svg" alt="IndoorPlayConcept" width={305} height={105} priority />
         </Link>
 

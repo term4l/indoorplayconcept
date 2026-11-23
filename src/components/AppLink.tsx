@@ -7,8 +7,15 @@ import { pageByPath } from "@/data/pages";
 // Pozostałe adresy (inne języki, nieprzeniesione strony WordPressa) to zwykłe <a>.
 const isAppRoute = (href: string) => Boolean(pageByPath(href)) || href.startsWith(magazinePage.path);
 
-type Props = Omit<ComponentProps<"a">, "href"> & { href: string };
+type Props = Omit<ComponentProps<"a">, "href"> & {
+  href: string;
+  /**
+   * Zwykłe <a> mimo trasy aplikacji – pełne przeładowanie jak w WordPressie.
+   * Używane dla logo i „Strona główna”: <Link> do bieżącej strony nic nie robi (nie odświeża, nie przewija na górę).
+   */
+  plain?: boolean;
+};
 
-export function AppLink({ href, ...rest }: Props) {
-  return isAppRoute(href) ? <Link href={href} {...rest} /> : <a href={href} {...rest} />;
+export function AppLink({ href, plain, ...rest }: Props) {
+  return isAppRoute(href) && !plain ? <Link href={href} {...rest} /> : <a href={href} {...rest} />;
 }

@@ -42,7 +42,7 @@ export function Footer() {
             <ul className={styles.list}>
               {col.links.map((l) => (
                 <li key={l.href}>
-                  <AppLink href={l.href} className={styles.link}>
+                  <AppLink href={l.href} className={styles.link} plain={l.href === "/pl/"}>
                     {l.label}
                   </AppLink>
                 </li>

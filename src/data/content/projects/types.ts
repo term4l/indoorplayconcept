@@ -4,7 +4,7 @@
 export type Inline = string | { b: string } | { br: true };
 export type Paragraph = Inline[];
 
-export type FaqIconName = "child" | "hotel" | "pencil" | "cubes" | "smile" | "cookie" | "peopleCarry";
+export type FaqIconName = "child" | "hotel" | "pencil" | "cubes" | "smile" | "cookie" | "peopleCarry" | "wrench" | "building";
 
 export type GalleryImage = {
   /** Miniatura (medium_large). */

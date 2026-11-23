@@ -34,7 +34,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pl-PL" className={`${albert.variable} ${poppins.variable} ${roboto.variable}`}>
+    <html lang="pl-PL" data-scroll-behavior="smooth" className={`${albert.variable} ${poppins.variable} ${roboto.variable}`}>
       <body>
         <a href="#content" className="skip-link">
           Przejdź do treści

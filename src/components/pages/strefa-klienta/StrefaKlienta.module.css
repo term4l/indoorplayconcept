@@ -1,0 +1,109 @@
+/* Strefa Klienta – port strony Elementora (post-1664): wyśrodkowana karta (40 % szerokości) z widżetem logowania. */
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10% 0;
+  padding: 0 20px;
+}
+
+.card {
+  width: 40%;
+  padding: 30px;
+  background: #21212142;
+  border: 2px solid #21212142;
+  border-radius: 15px;
+}
+
+.title {
+  margin: 0 0 20px;
+  font: 600 25px/1.2 var(--font-albert), sans-serif;
+  color: var(--c-text);
+  text-align: center;
+}
+
+.lead {
+  margin: 0 0 20px;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+  width: 100%;
+  min-height: 40px;
+  padding: 0 12px;
+  font: 400 15px/1.4 var(--font-albert), sans-serif;
+  color: var(--c-muted);
+  background: var(--c-surface);
+  border: 1px solid #21212142;
+  border-radius: 7px;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: var(--c-soft);
+  outline: none;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 400 15px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-text);
+  cursor: pointer;
+}
+
+.remember input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--c-text);
+}
+
+.button {
+  align-self: flex-start;
+  padding: 5px 15px;
+  font: 500 15px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-surface);
+  background: var(--c-text);
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+/* elementor-animation-shrink */
+.button:hover,
+.button:focus-visible {
+  transform: scale(0.95);
+}
+
+.lost {
+  align-self: flex-start;
+  font: 400 15px/1.5 var(--font-albert), sans-serif;
+  color: var(--c-text);
+  transition: color 0.2s;
+}
+
+.lost:hover {
+  color: var(--c-soft);
+}
+
+@media (max-width: 767px) {
+  .section {
+    margin: 60px 0;
+  }
+
+  .card {
+    width: 100%;
+    padding: 24px 20px;
+  }
+}

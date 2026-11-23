@@ -26,6 +26,7 @@ const nextConfig: NextConfig = {
         ["/kariera/", "/pl/kariera/"],
         ["/dostawcy/", "/pl/dostawcy/"],
         ["/media/", "/pl/media/"],
+        ["/strefa-klienta/", "/pl/strefa-klienta/"],
       ].map(([source, destination]) => ({ source, destination, permanent: true })),
     ];
   },

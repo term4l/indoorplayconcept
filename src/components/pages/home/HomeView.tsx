@@ -88,7 +88,7 @@ function Projects() {
         <h2 className={styles.projectsTitle}>Produkty i moduły - łączymy je w spójny system wewnętrznych sal zabaw</h2>
         <p className={styles.projectsAside}>Zdecyduj czego potrzebujesz</p>
       </div>
-      <ProjectsCatalog projects={homeProjects} variant="slider" />
+      <ProjectsCatalog projects={homeProjects} variant="slider" autoplay />
       <div className={styles.center}>
         <ArrowLink href="/pl/sale-zabaw-projekty-3d/" variant="light">
           Odkryj projekty, które stworzyli nasi projektanci
@@ -272,7 +272,7 @@ function Faq() {
       </div>
       <Carousel label="Najczęstsze pytania" below="mobile" className={styles.cards3}>
         {faq.map((f) => (
-          <div key={f.question} className={styles.card}>
+          <div key={f.question} className={`${styles.card} ${styles.faqCard}`}>
             <h2 className={styles.cardTitle}>{f.question}</h2>
             <p className={styles.cardText}>{f.answer}</p>
           </div>

@@ -343,7 +343,7 @@
 
 .steps {
   display: flex;
-  gap: 3px;
+  gap: 23px;
 }
 
 .step {
@@ -356,6 +356,11 @@
   background: rgba(33, 33, 33, 0.26);
   border: 1px solid var(--c-surface);
   border-radius: 3px;
+  transition: background 0.3s;
+}
+
+.step:hover {
+  background: #12181b;
 }
 
 .stepTop {
@@ -459,6 +464,11 @@
   background: rgba(33, 33, 33, 0.26);
   border: 1px solid var(--c-surface);
   border-radius: 7px;
+  transition: box-shadow 0.3s;
+}
+
+.faqCard:hover {
+  box-shadow: 0 0 13px rgba(131, 131, 131, 0.37);
 }
 
 .cardTitle {
@@ -636,7 +646,7 @@
 }
 
 .aboutText {
-  font: 400 15px/1.5 var(--font-albert), sans-serif;
+  font: 400 16px/1.5 var(--font-albert), sans-serif;
   color: var(--c-muted);
 }
 
@@ -672,7 +682,7 @@
 }
 
 .stat {
-  padding: 20px 0 10px 20px;
+  padding: 20px 10px 20px 20px;
   background: rgba(33, 33, 33, 0.26);
   border: 1px solid var(--c-surface);
   border-radius: 7px;
@@ -692,7 +702,7 @@
 
 .aboutMedia {
   position: relative;
-  min-height: 600px;
+  aspect-ratio: 900 / 805;
   overflow: hidden;
 }
 
@@ -732,8 +742,8 @@
 }
 
 .headlineActive[data-phase="selected"] .headlineTyped {
-  color: #0a0a0a;
-  background: var(--c-text);
+  color: #aebcb9;
+  background: #0d0d0d;
 }
 
 @keyframes caret {
@@ -771,6 +781,11 @@
   padding: 5px 20px;
   border: 1px solid var(--c-surface);
   border-radius: 7px;
+  transition: box-shadow 0.3s;
+}
+
+.contactBox:hover {
+  box-shadow: 0 0 10px rgba(131, 131, 131, 0.78);
 }
 
 .contactBox[data-wide] {
@@ -853,7 +868,6 @@
   }
 
   .aboutMedia {
-    min-height: 0;
     aspect-ratio: 1;
   }
 }

@@ -65,9 +65,14 @@ type Props = {
    * "slider" – poziomy pasek kart ze strzałkami, bez filtra (tryb .ipc-wrap--slider ze strony głównej).
    */
   variant?: "grid" | "slider";
+  /** Tylko w trybie slider: łagodne automatyczne przewijanie o jedną kartę (strona główna). */
+  autoplay?: boolean;
 };
 
-export function ProjectsCatalog({ projects, variant = "grid" }: Props) {
+/** Odstęp automatycznego przewijania slidera (ms). */
+const AUTOPLAY_MS = 5000;
+
+export function ProjectsCatalog({ projects, variant = "grid", autoplay = false }: Props) {
   const isSlider = variant === "slider";
   const [q, setQ] = useState("");
   const [ranges, setRanges] = useState<Ranges>(fullRanges);
@@ -260,7 +265,9 @@ export function ProjectsCatalog({ projects, variant = "grid" }: Props) {
       )}
 
       <div className={styles.results}>
-        {isSlider && <SliderArrows gridRef={gridRef} />}
+        {isSlider && (
+          <SliderArrows gridRef={gridRef} autoplay={autoplay ? AUTOPLAY_MS : 0} paused={Boolean(product) || compareOpen || Boolean(inquiry)} />
+        )}
         <div className={styles.grid} ref={gridRef}>
           {visible.map((p) =>
             isSlider ? (
@@ -442,9 +449,14 @@ export function ProjectsCatalog({ projects, variant = "grid" }: Props) {
   );
 }
 
-/** Strzałki trybu slider: przewijają pasek o jedną kartę (+ odstęp), blokują się na końcach (jak w ipc.js). */
-function SliderArrows({ gridRef }: { gridRef: RefObject<HTMLDivElement | null> }) {
+/**
+ * Strzałki trybu slider: przewijają pasek o jedną kartę (+ odstęp), blokują się na końcach (jak w ipc.js).
+ * Z `autoplay` (ms) pasek sam przesuwa się o kartę, a z końca wraca na początek. Pauza, gdy kursor albo fokus jest
+ * na sliderze, po interakcji użytkownika, przy otwartym modalu (`paused`), w ukrytej karcie i przy prefers-reduced-motion.
+ */
+function SliderArrows({ gridRef, autoplay = 0, paused = false }: { gridRef: RefObject<HTMLDivElement | null>; autoplay?: number; paused?: boolean }) {
   const [state, setState] = useState({ scrollable: false, atStart: true, atEnd: false });
+  const lastUserActionRef = useRef(0);
 
   useEffect(() => {
     const grid = gridRef.current;
@@ -463,14 +475,57 @@ function SliderArrows({ gridRef }: { gridRef: RefObject<HTMLDivElement | null> }
     };
   }, [gridRef]);
 
-  function step(dir: 1 | -1) {
+  const step = useCallback(
+    (dir: 1 | -1) => {
+      const grid = gridRef.current;
+      if (!grid) return;
+      const card = grid.firstElementChild;
+      const gap = parseFloat(getComputedStyle(grid).columnGap) || 0;
+      const amount = card ? card.getBoundingClientRect().width + gap : Math.max(220, grid.clientWidth * 0.9);
+      grid.scrollBy({ left: dir * amount, behavior: "smooth" });
+    },
+    [gridRef],
+  );
+
+  useEffect(() => {
     const grid = gridRef.current;
-    if (!grid) return;
-    const card = grid.firstElementChild;
-    const gap = parseFloat(getComputedStyle(grid).columnGap) || 0;
-    const amount = card ? card.getBoundingClientRect().width + gap : Math.max(220, grid.clientWidth * 0.9);
-    grid.scrollBy({ left: dir * amount, behavior: "smooth" });
-  }
+    if (!autoplay || !grid) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const host = grid.parentElement ?? grid;
+    const flags = { hover: false, focus: false };
+    const onEnter = () => (flags.hover = true);
+    const onLeave = () => (flags.hover = false);
+    const onFocusIn = () => (flags.focus = true);
+    const onFocusOut = (e: FocusEvent) => {
+      if (!host.contains(e.relatedTarget as Node | null)) flags.focus = false;
+    };
+    const onUser = () => (lastUserActionRef.current = Date.now());
+    host.addEventListener("mouseenter", onEnter);
+    host.addEventListener("mouseleave", onLeave);
+    host.addEventListener("focusin", onFocusIn);
+    host.addEventListener("focusout", onFocusOut);
+    host.addEventListener("click", onUser);
+    grid.addEventListener("pointerdown", onUser, { passive: true });
+    grid.addEventListener("wheel", onUser, { passive: true });
+    const id = window.setInterval(() => {
+      if (paused || document.hidden || flags.hover || flags.focus) return;
+      if (Date.now() - lastUserActionRef.current < autoplay) return;
+      const max = grid.scrollWidth - grid.clientWidth;
+      if (max <= 2) return;
+      if (grid.scrollLeft >= max - 2) grid.scrollTo({ left: 0, behavior: "smooth" });
+      else step(1);
+    }, autoplay);
+    return () => {
+      window.clearInterval(id);
+      host.removeEventListener("mouseenter", onEnter);
+      host.removeEventListener("mouseleave", onLeave);
+      host.removeEventListener("focusin", onFocusIn);
+      host.removeEventListener("focusout", onFocusOut);
+      host.removeEventListener("click", onUser);
+      grid.removeEventListener("pointerdown", onUser);
+      grid.removeEventListener("wheel", onUser);
+    };
+  }, [autoplay, paused, gridRef, step]);
 
   return (
     <div className={styles.sliderTop}>
