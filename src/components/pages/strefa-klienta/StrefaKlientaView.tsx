@@ -1,14 +1,6 @@
-import { LoginForm } from "./LoginForm";
-import styles from "./StrefaKlienta.module.css";
+import { CooperationMap } from "./CooperationMap";
 
+/** Strefa Klienta: od 24.11.2026 interaktywna mapa współpracy (kod od klienta) zamiast panelu logowania z WordPressa. */
 export function StrefaKlientaView() {
-  return (
-    <section className={styles.section}>
-      <div className={styles.card}>
-        <h1 className={styles.title}>Strefa Klienta</h1>
-        <p className={styles.lead}>Podaj e-mail i hasło, aby wejść.</p>
-        <LoginForm />
-      </div>
-    </section>
-  );
+  return <CooperationMap />;
 }

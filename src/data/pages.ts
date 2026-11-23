@@ -490,6 +490,7 @@ export const pages = {
   "strefa-klienta": {
     path: "/pl/strefa-klienta/",
     title: "Strefa Klienta - IndoorPlayConcept",
+    description: "Twoja droga do własnego projektu: wybierz ścieżkę współpracy z Indoor Play Concept – od pierwszego rozeznania po modernizację obiektu.",
     breadcrumb: "Strefa Klienta",
     datePublished: "2025-12-19T18:24:40+00:00",
     dateModified: "2026-02-04T19:12:53+00:00",

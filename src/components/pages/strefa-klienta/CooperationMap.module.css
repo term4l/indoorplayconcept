@@ -1,0 +1,763 @@
+/* Strefa Klienta – mapa współpracy. Wartości przeniesione z klas Tailwinda w StrefaKlienta.jsx od klienta:
+   granat #111F39, zieleń #52B52B, pomarańcz #FF8A00. Breakpointy Tailwinda: sm 640, md 768, lg 1024. */
+
+.page {
+  min-height: 100vh;
+  font-family: var(--font-albert), sans-serif;
+  color: #fff;
+  background: #111f39;
+}
+
+.page button {
+  font-family: inherit;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.heroGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.25;
+  background: radial-gradient(ellipse at 50% 10%, #52b52b45, transparent 60%);
+}
+
+.heroInner {
+  position: relative;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 64px 16px;
+  text-align: center;
+}
+
+.heroKicker {
+  margin: 0 0 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #52b52b;
+}
+
+.heroTitle {
+  margin: 0 0 24px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+
+.heroAccent {
+  color: #52b52b;
+}
+
+.heroLead {
+  max-width: 768px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.625;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ---------- Kontener i start ---------- */
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 16px 96px;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.resetBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.resetBtn:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.startWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.startBtn {
+  width: 100%;
+  max-width: 384px;
+  padding: 28px 24px;
+  color: #fff;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.startBtn:hover {
+  border-color: #52b52b;
+}
+
+.startBtn[data-active] {
+  background: rgba(82, 181, 43, 0.1);
+  border-color: #52b52b;
+}
+
+.startIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+  color: #52b52b;
+}
+
+.startTitle {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.startHint {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ---------- Etapy ---------- */
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stage {
+  scroll-margin-top: 96px;
+  animation: enter 0.3s ease-out both;
+}
+
+.resultStage {
+  max-width: 896px;
+  margin: 0 auto;
+}
+
+.connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 48px;
+  color: #52b52b;
+}
+
+@keyframes grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.connectorLine {
+  width: 2px;
+  height: 32px;
+  background: #52b52b;
+  transform-origin: top;
+  animation: grow 0.3s ease-out both;
+}
+
+.connector[data-muted] {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.connector[data-muted] .connectorLine {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.stepTitle {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.stepKicker {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #52b52b;
+}
+
+.stepHeading {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.pathsGrid,
+.budgetGrid,
+.endpointsGrid,
+.singleGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.budgetGrid {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.singleGrid {
+  max-width: 576px;
+  margin: 0 auto;
+}
+
+.pathCell {
+  height: 100%;
+}
+
+/* ---------- Karty wyboru ---------- */
+
+.choice {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  min-height: 156px;
+  padding: 20px;
+  color: #fff;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.035);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.choice:hover {
+  background: rgba(255, 255, 255, 0.075);
+  transform: translateY(-2px);
+}
+
+.choice:focus-visible {
+  outline: 2px solid #ff8a00;
+  outline-offset: 2px;
+}
+
+.choice[data-selected] {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: #52b52b;
+}
+
+.choice[data-selected][data-variant="orange"] {
+  border-color: #ff8a00;
+}
+
+.choice[data-featured] {
+  background: rgba(255, 138, 0, 0.06);
+  border-color: rgba(255, 138, 0, 0.8);
+}
+
+.choice[data-featured]:hover {
+  background: rgba(255, 138, 0, 0.11);
+}
+
+.choice[data-featured][data-selected] {
+  background: rgba(255, 138, 0, 0.12);
+  border-color: #ff8a00;
+}
+
+.choiceTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.choiceIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.choice[data-selected] .choiceIcon {
+  color: #52b52b;
+  background: rgba(82, 181, 43, 0.2);
+}
+
+.choice[data-featured] .choiceIcon {
+  color: #ff8a00;
+  background: rgba(255, 138, 0, 0.15);
+}
+
+.choiceCheck {
+  flex-shrink: 0;
+  color: #52b52b;
+}
+
+.choice[data-variant="orange"] .choiceCheck,
+.choice[data-featured] .choiceCheck {
+  color: #ff8a00;
+}
+
+.choiceChevron {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.2s;
+}
+
+.choice:hover .choiceChevron {
+  color: #52b52b;
+}
+
+.choice[data-featured] .choiceChevron {
+  color: #ff8a00;
+}
+
+.choiceTitle {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.choice[data-featured] .choiceTitle {
+  color: #ffb35c;
+}
+
+.choiceDesc {
+  display: block;
+  font-size: 14px;
+  line-height: 1.625;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ---------- Opis ścieżki ---------- */
+
+.pathInfo {
+  max-width: 768px;
+  margin: 0 auto 32px;
+  padding: 20px;
+  background: rgba(82, 181, 43, 0.07);
+  border: 1px solid rgba(82, 181, 43, 0.4);
+  border-radius: 16px;
+}
+
+.pathInfoHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #52b52b;
+}
+
+.pathNeeds {
+  line-height: 1.625;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pathNeeds p {
+  margin: 0 0 16px;
+}
+
+.pathNeeds p:last-child {
+  margin-bottom: 0;
+}
+
+.pathNeeds strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+.plannerLinkRow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.plannerLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #52b52b;
+  transition: color 0.2s;
+}
+
+.plannerLink:hover {
+  color: #7ad456;
+}
+
+/* ---------- Panel wyniku ---------- */
+
+.panel {
+  overflow: hidden;
+  background: linear-gradient(to bottom, #182842, #111f39);
+  border: 1px solid rgba(255, 138, 0, 0.55);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+}
+
+.panelBar {
+  height: 4px;
+  background: linear-gradient(to right, #52b52b, #ff8a00);
+}
+
+.panelBody {
+  padding: 24px;
+}
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.crumbCurrent {
+  color: #ffb35c;
+}
+
+.panelHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.panelIcon {
+  display: inline-flex;
+  padding: 12px;
+  color: #ff8a00;
+  background: rgba(255, 138, 0, 0.15);
+  border-radius: 16px;
+}
+
+.panelLabel {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffb35c;
+}
+
+.panelTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.panelLead {
+  margin: 0 0 20px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.625;
+  color: #fff;
+}
+
+.panelText {
+  margin: 0 0 32px;
+  line-height: 28px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.tasks {
+  margin-bottom: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.tasksTitle {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tasksList li {
+  display: flex;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.taskIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #52b52b;
+}
+
+.actions[data-centered] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.docFlow,
+.docReady {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.docReady {
+  margin-top: 8px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.docNote {
+  max-width: 576px;
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.disabledWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.hint {
+  margin: 0;
+  font-size: 12px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.error {
+  max-width: 512px;
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+  color: #fca5a5;
+}
+
+/* ---------- Przyciski ---------- */
+
+.btnOrange,
+.btnGreen {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btnOrange {
+  background: #ff8a00;
+}
+
+.btnOrange:hover {
+  background: #ffa52e;
+}
+
+.btnOrange:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.btnGreen {
+  padding: 16px 36px;
+  background: #52b52b;
+}
+
+.btnGreen:hover {
+  background: #65cc3e;
+}
+
+.btnDisabled,
+.btnDisabled:hover {
+  background: rgba(82, 181, 43, 0.5);
+  cursor: not-allowed;
+}
+
+.btnOrange:focus-visible,
+.btnGreen:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.resultLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.textBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.textBtn:hover {
+  color: #52b52b;
+}
+
+/* ---------- Breakpointy ---------- */
+
+@media (min-width: 640px) {
+  .pathsGrid,
+  .budgetGrid,
+  .endpointsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pathCell[data-express] {
+    grid-column: span 2;
+  }
+
+  .btnOrange,
+  .btnGreen {
+    width: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .heroInner {
+    padding: 96px 16px;
+  }
+
+  .heroTitle {
+    font-size: 60px;
+  }
+
+  .heroLead {
+    font-size: 18px;
+  }
+
+  .container {
+    padding: 64px 16px 96px;
+  }
+
+  .pathsGrid,
+  .budgetGrid,
+  .endpointsGrid,
+  .singleGrid {
+    gap: 16px;
+  }
+
+  .stepHeading {
+    font-size: 24px;
+  }
+
+  .startTitle {
+    font-size: 24px;
+  }
+
+  .choiceTitle {
+    font-size: 18px;
+  }
+
+  .panelBody {
+    padding: 36px;
+  }
+
+  .panelTitle {
+    font-size: 30px;
+  }
+
+  .panelLead {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pathsGrid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .pathCell[data-express] {
+    grid-column: span 1;
+    padding-left: 16px;
+  }
+
+  .endpointsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
