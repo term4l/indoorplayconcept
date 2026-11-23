@@ -813,13 +813,14 @@
   color: #e5e7eb;
 }
 
+/* Panel z ceną: kolumna `auto` jak w ipc.css – szerokość z treści (notka o cenie w jednej linii ≈ 548 px przy 1920),
+   dzięki czemu zdjęcie ma ok. 813 px, a modal 709 px wysokości, jak w oryginale. */
 .productSide {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
-  width: 320px;
-  padding: 48px 20px 18px;
+  padding: 18px 20px;
 }
 
 .priceLabel {
@@ -1129,10 +1130,6 @@
     border-bottom: 1px solid #1f2933;
   }
 
-  .productSide {
-    width: auto;
-    padding-top: 18px;
-  }
 }
 
 @media (max-width: 768px) {

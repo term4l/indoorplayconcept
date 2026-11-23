@@ -52,7 +52,8 @@ export const mainNav: NavItem[] = [
   { label: currentLanguage.label, href: "#", children: languages, isLanguageSwitcher: true },
 ];
 
+// Przycisk w nagłówku: od 24.11.2026 „IPC PLANNER 3D” zamiast „Umów konsultację inwestycyjną” (decyzja klienta).
 export const consultationCta = {
-  label: "UMÓW KONSULTACJĘ INWESTYCYJNĄ",
+  label: "IPC PLANNER 3D",
   href: "/konsultacja/",
 };
