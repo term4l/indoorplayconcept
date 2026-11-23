@@ -2,7 +2,9 @@ import Link from "next/link";
 import { pagePath } from "@/data/magazine";
 import styles from "./Magazine.module.css";
 
-export function Pagination({ current, total }: { current: number; total: number }) {
+type Props = { current: number; total: number; /** Ścieżka strony n (domyślnie Play Magazine). */ hrefFor?: (n: number) => string };
+
+export function Pagination({ current, total, hrefFor = pagePath }: Props) {
   if (total <= 1) return null;
 
   return (
@@ -14,7 +16,7 @@ export function Pagination({ current, total }: { current: number; total: number 
             {n}
           </span>
         ) : (
-          <Link key={n} href={pagePath(n)} className={styles.pageLink}>
+          <Link key={n} href={hrefFor(n)} className={styles.pageLink}>
             <span className="sr-only">Strona </span>
             {n}
           </Link>

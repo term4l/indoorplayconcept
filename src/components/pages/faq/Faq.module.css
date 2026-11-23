@@ -99,7 +99,7 @@
   justify-content: space-between;
   gap: 12px;
   padding: 20px;
-  font: 400 17px/1.4 var(--font-albert), sans-serif;
+  font: 400 16px/1.4 var(--font-albert), sans-serif;
   color: var(--c-text);
   background: #21212142;
   border: 1px solid var(--c-surface);
@@ -122,6 +122,11 @@
 }
 
 .opened,
+/* Elementor nested accordion: 12px odstępu między pytaniami. */
+.item {
+  margin-bottom: 12px;
+}
+
 .item[open] .closed {
   display: none;
 }

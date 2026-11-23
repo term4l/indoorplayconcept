@@ -22,7 +22,7 @@ const termSlug = (name: string) =>
 /** "2026-07-17T10:00:43+00:00" -> { label: "17/07/2026", archive: "/pl/2026/07/17/" } (format WordPressa). */
 function publishDate(iso: string) {
   const [y, m, d] = iso.slice(0, 10).split("-");
-  return { label: `${d}/${m}/${y}`, archive: `/pl/${y}/${m}/${d}/` };
+  return { label: `${d}/${m}/${y}` };
 }
 
 function BackArrow() {
@@ -75,9 +75,7 @@ export function ArticleLayout({ slug, content }: Props) {
             <ul className={styles.meta}>
               {published && (
                 <li>
-                  <a href={published.archive}>
-                    <time dateTime={page.datePublished}>{published.label}</time>
-                  </a>
+                  <time dateTime={page.datePublished}>{published.label}</time>
                 </li>
               )}
               {category && (

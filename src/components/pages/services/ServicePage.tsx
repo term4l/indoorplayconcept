@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Fragment, type CSSProperties, type ReactNode } from "react";
 import { AppLink } from "@/components/AppLink";
 import { Counter } from "./Counter";
-import { Disclosure } from "./Disclosure";
+import { Disclosure } from "@/components/Disclosure";
 import { ServiceIcon } from "./icons";
 import type {
   Block,

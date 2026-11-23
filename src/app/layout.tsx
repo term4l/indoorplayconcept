@@ -7,7 +7,7 @@ import "./globals.css";
 
 const albert = Albert_Sans({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-albert",
   display: "swap",
 });

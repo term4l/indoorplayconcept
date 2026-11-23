@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Disclosure } from "@/components/Disclosure";
 import { Button } from "@/components/ui";
 import { faqColumns, faqIntro, type FaqEntry } from "@/data/content/faq";
 import styles from "./Faq.module.css";
@@ -11,20 +12,26 @@ const MINUS = "M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384
 
 function FaqItem({ question, answer }: FaqEntry) {
   return (
-    <details className={styles.item}>
-      <summary className={styles.title}>
-        <span>{question}</span>
-        <span className={styles.icon} aria-hidden="true">
-          <svg className={styles.closed} viewBox="0 0 448 512" fill="currentColor">
-            <path d={PLUS} />
-          </svg>
-          <svg className={styles.opened} viewBox="0 0 448 512" fill="currentColor">
-            <path d={MINUS} />
-          </svg>
-        </span>
-      </summary>
-      <div className={styles.answer}>{answer}</div>
-    </details>
+    <Disclosure
+      className={styles.item}
+      summaryClassName={styles.title}
+      summary={
+        <>
+          <span>{question}</span>
+          <span className={styles.icon} aria-hidden="true">
+            <svg className={styles.closed} viewBox="0 0 448 512" fill="currentColor">
+              <path d={PLUS} />
+            </svg>
+            <svg className={styles.opened} viewBox="0 0 448 512" fill="currentColor">
+              <path d={MINUS} />
+            </svg>
+          </span>
+        </>
+      }
+      bodyClassName={styles.answer}
+    >
+      {answer}
+    </Disclosure>
   );
 }
 
