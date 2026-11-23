@@ -253,7 +253,8 @@ function Process() {
           <ShieldSvg className={styles.ctaBarIcon} />
           <h3>Zacznijmy od krótkiej rozmowy po której w 48h dostaniesz wstępny wariant wraz&nbsp;z&nbsp;kosztami.</h3>
         </div>
-        <ArrowLink href="/konsultacja/" variant="outline" className={styles.ctaBarBtn}>
+        {/* W WP prowadził do /pl/konsultacja/ (strona nieprzeniesiona); od 24.11.2026 do tej sekcji – cel do potwierdzenia. */}
+        <ArrowLink href="/pl/#proces" variant="outline" className={styles.ctaBarBtn}>
           Sprawdź proces współpracy
         </ArrowLink>
       </div>

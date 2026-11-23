@@ -45,6 +45,7 @@ export const mainNav: NavItem[] = [
       { label: "Play magazine", href: "/pl/play-magazine/" },
       { label: "FAQ", href: "/pl/faq/" },
       { label: "Kalkulator ROI", href: "/pl/kalkulator-roi/" },
+      { label: "Proces współpracy", href: "/pl/#proces" },
       { label: "Zgłoszenie serwisowe", href: "/pl/zgloszenie-serwisowe/" },
     ],
   },
