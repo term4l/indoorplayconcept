@@ -40,7 +40,6 @@
 
 .heroInner {
   width: 100%;
-  max-width: var(--container);
   margin: 0 auto;
 }
 
@@ -79,14 +78,15 @@
 
 /* ---------- Opis + spis treści ---------- */
 
+/* Kontener Elementora: max-width 95 % ekranu (1824 px przy 1920), padding 10 px, kolumny 65 % / 35 % z odstępem 30 px. */
 .opis {
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-start;
   gap: 30px;
-  width: min(95%, var(--container));
+  width: 95%;
   margin: 0 auto;
-  padding-top: 20px;
+  padding: 10px;
   scroll-margin-top: 100px;
 }
 
@@ -232,12 +232,17 @@
 
 /* ---------- Sekcje ---------- */
 
+/* Sekcje na całą szerokość z paddingiem 50 px (treść 1820 px przy 1920), jak w oryginale. */
 .section {
-  width: min(100%, var(--container));
-  margin: 80px auto 40px;
+  width: 100%;
+  margin: 80px 0 40px;
   padding: 0 50px 40px;
   border-bottom: 1px solid var(--c-surface);
   scroll-margin-top: 100px;
+}
+
+.opis + .section {
+  margin-top: 50px;
 }
 
 .section[data-last] {
@@ -281,8 +286,11 @@
 
 /* ---------- Galeria + lightbox ---------- */
 
+/* Wizualizacje w naturalnym rozmiarze (768 px), wyśrodkowane – jak w oryginale, bez rozciągania. */
 .gallery {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -295,9 +303,13 @@
   cursor: zoom-in;
 }
 
+.galleryItem {
+  max-width: 100%;
+}
+
 .galleryItem img {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -370,17 +382,21 @@
   margin-top: 80px;
 }
 
+/* Boksy FAQ: stała szerokość 564 px, wiersze wyśrodkowane (ostatni, niepełny wiersz też) – jak w oryginale. */
 .faqGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
 .faqBox {
   display: flex;
+  flex: 0 1 564px;
+  max-width: 100%;
   align-items: flex-start;
   gap: 12px;
-  padding: 20px;
+  padding: 20px 10px 20px 20px;
   border: 1px solid var(--c-surface);
   border-radius: 7px;
   background: #21212142;
@@ -417,6 +433,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px 30px;
+  padding: 0 10px;
 }
 
 .post {

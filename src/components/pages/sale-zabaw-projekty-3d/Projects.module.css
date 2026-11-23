@@ -205,17 +205,13 @@
   line-height: 1.1;
 }
 
-.inp input {
-  width: 100%;
+.inpValue {
+  flex: 1 1 auto;
   height: 20px;
-  padding: 0;
   font: inherit;
   font-size: 14px;
   line-height: 20px;
   color: #fff;
-  background: transparent;
-  border: 0;
-  outline: none;
 }
 
 .sort {
@@ -319,6 +315,9 @@
 
 .results {
   min-width: 0;
+  /* Przy sortowaniu karty zmieniają kolejność w DOM; bez tego przeglądarka „kotwiczy” widok do przesuniętej
+     karty i strona skacze w górę (uwaga klienta z 24.11.2026). */
+  overflow-anchor: none;
 }
 
 .grid {

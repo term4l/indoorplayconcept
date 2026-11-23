@@ -63,7 +63,7 @@ export function ProjectCard({ project: p, onOpen, variant = "grid", compared = f
       onKeyDown={onKeyDown}
     >
       <div className={styles.thumb}>
-        <Image src={p.image} alt={p.title} width={1024} height={576} sizes="(max-width: 620px) 100vw, (max-width: 1100px) 50vw, 300px" />
+        <Image src={p.image} alt={p.title} width={1024} height={576} sizes="(max-width: 620px) 100vw, (max-width: 1100px) 50vw, 420px" />
         <div className={styles.topbar}>
           {!isSlider && (
             <div className={styles.thumbActions}>

@@ -19,7 +19,7 @@ export const similarProjects: Project[] = [
   },
   {
     "id": "3530",
-    "title": "Małpi gaj w siłowni",
+    "title": "Małpi gaj Podwodny Świat w siłowni",
     "code": "PM-PA007",
     "image": "https://indoorplayconcept.com/wp-content/uploads/2026/02/PM-PA007-1024x576.webp",
     "category": "soft-play",

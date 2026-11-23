@@ -23,10 +23,13 @@ export function snapToStep(v: number, step: number): number {
   return parseFloat((Math.round(v / step) * step).toFixed(10));
 }
 
-/** Format wartości w polach "od/do" (nf() z ipc.js). */
+/** Format wartości "od/do" (nf() z ipc.js). */
 const nf = (x: number) => String(Math.round(x * 100) / 100);
 
-/** Podwójny suwak zakresu z polami "od / do" (port klasy Slider z ipc.js). */
+/**
+ * Podwójny suwak zakresu (port klasy Slider z ipc.js). Wartości „od / do” są tylko do odczytu –
+ * klient chce ustawiania wymiarów wyłącznie suwakiem (uwagi z 24.11.2026); w oryginale były to pola do wpisania.
+ */
 export function RangeField({ label, min, max, step = 0.1, unit, value, onChange }: Props) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [a, b] = value;
@@ -69,18 +72,6 @@ export function RangeField({ label, min, max, step = 0.1, unit, value, onChange 
     move(e.clientX);
   }
 
-  function syncFromInputs(minStr: string, maxStr: string) {
-    const parse = (s: string, fallback: number) => (s === "" ? fallback : parseFloat(s.replace(",", ".")));
-    let na = parse(minStr, min);
-    let nb = parse(maxStr, max);
-    if (Number.isNaN(na)) na = min;
-    if (Number.isNaN(nb)) nb = max;
-    na = clamp(snapToStep(clamp(na, min, max), step), min, max);
-    nb = clamp(snapToStep(clamp(nb, min, max), step), min, max);
-    if (na > nb) [na, nb] = [nb, na];
-    onChange([na, nb]);
-  }
-
   return (
     <div className={styles.field}>
       <div className={styles.fieldLabel}>
@@ -107,29 +98,17 @@ export function RangeField({ label, min, max, step = 0.1, unit, value, onChange 
           onPointerDown={(e) => start("b", e)}
         />
       </div>
-      <div className={styles.inputs}>
-        <label className={styles.inp}>
+      <div className={styles.inputs} aria-live="polite">
+        <span className={styles.inp}>
           <span>od</span>
-          <input
-            type="number"
-            step={step}
-            inputMode="decimal"
-            value={inMin}
-            onChange={(e) => syncFromInputs(e.target.value, inMax)}
-          />
+          <output className={styles.inpValue}>{inMin}</output>
           <span>{unit}</span>
-        </label>
-        <label className={styles.inp}>
+        </span>
+        <span className={styles.inp}>
           <span>do</span>
-          <input
-            type="number"
-            step={step}
-            inputMode="decimal"
-            value={inMax}
-            onChange={(e) => syncFromInputs(inMin, e.target.value)}
-          />
+          <output className={styles.inpValue}>{inMax}</output>
           <span>{unit}</span>
-        </label>
+        </span>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { ConsentCheckbox, TextArea, TextField } from "@/components/forms/Fields"
 import type { Project } from "@/data/content/sale-zabaw-projekty-3d";
 import { Modal } from "./Modal";
 import { ProjectCard, projectDims } from "./ProjectCard";
-import { RangeField, type Range } from "./RangeField";
+import { RangeField, snapToStep, type Range } from "./RangeField";
 import styles from "./Projects.module.css";
 
 const PER_PAGE = 9;
@@ -23,13 +23,26 @@ type ScaleKey = "s" | "m" | "xl";
 const LIMITS: Record<Dim, Range> = { length: [0, 40], width: [0, 30], height: [0, 10] };
 const DIM_LABELS: Record<Dim, string> = { length: "Długość (L)", width: "Szerokość (W)", height: "Wysokość (H)" };
 
-// Stałe zakresy presetów skali (jak w ipc.js); URL może wymusić preset przez ?ipc_scale=s|m|xl
-const PRESETS: Record<ScaleKey, Ranges> = {
-  s: { length: [0, 10], width: [0, 10], height: [0, 4] },
-  m: { length: [8, 22], width: [8, 18], height: [3, 6] },
-  xl: { length: [18, 40], width: [14, 30], height: [4, 10] },
-};
-const isScaleKey = (k: string): k is ScaleKey => k in PRESETS;
+// Skala projektu wynika z przedrostka kodu (życzenie klienta z 24.11.2026): PM = mały → S,
+// PS = średni → M, PD = duży → XL. Suwaki po wybraniu skali pokazują przedział wymiarów (min–max)
+// wszystkich projektów tej skali. URL może wymusić skalę przez ?ipc_scale=s|m|xl.
+const SCALE_PREFIX: Record<ScaleKey, string> = { s: "PM", m: "PS", xl: "PD" };
+const SCALE_KEYS = Object.keys(SCALE_PREFIX) as ScaleKey[];
+const isScaleKey = (k: string): k is ScaleKey => k in SCALE_PREFIX;
+const scaleOf = (p: Project): ScaleKey | null => SCALE_KEYS.find((k) => p.code.toUpperCase().startsWith(SCALE_PREFIX[k])) ?? null;
+
+/** Przedział wymiarów projektów danej skali (w granicach suwaków). */
+function scaleRanges(list: Project[], key: ScaleKey): Ranges {
+  const items = list.filter((p) => scaleOf(p) === key);
+  const span = (dim: Dim): Range => {
+    if (!items.length) return LIMITS[dim];
+    const vals = items.map((p) => p[dim]);
+    const lo = Math.max(LIMITS[dim][0], Math.min(...vals));
+    const hi = Math.min(LIMITS[dim][1], Math.max(...vals));
+    return [snapToStep(lo, 0.1), snapToStep(hi, 0.1)];
+  };
+  return { length: span("length"), width: span("width"), height: span("height") };
+}
 
 const SORTS: { key: Sort; label: string }[] = [
   { key: "default", label: "Domyślnie" },
@@ -41,11 +54,12 @@ const fullRanges = (): Ranges => ({ length: LIMITS.length, width: LIMITS.width, 
 
 const area = (p: Project) => p.length * p.width;
 
-function filterProjects(list: Project[], q: string, ranges: Ranges, sort: Sort): Project[] {
+function filterProjects(list: Project[], q: string, ranges: Ranges, sort: Sort, scale: ScaleKey | null): Project[] {
   const needle = q.trim().toLowerCase();
   const inRange = (v: number, [a, b]: Range) => v >= a && v <= b;
   const out = list.filter(
     (p) =>
+      (!scale || scaleOf(p) === scale) &&
       inRange(p.length, ranges.length) &&
       inRange(p.width, ranges.width) &&
       inRange(p.height, ranges.height) &&
@@ -86,7 +100,7 @@ export function ProjectsCatalog({ projects, variant = "grid", autoplay = false }
   const [filtersCollapsed, setFiltersCollapsed] = useState(false);
 
   const gridRef = useRef<HTMLDivElement>(null);
-  const results = useMemo(() => filterProjects(projects, q, ranges, sort), [projects, q, ranges, sort]);
+  const results = useMemo(() => filterProjects(projects, q, ranges, sort, scale), [projects, q, ranges, sort, scale]);
   const visible = isSlider ? results : results.slice(0, shown);
   const remaining = results.length - visible.length;
   const byId = useMemo(() => new Map(projects.map((p) => [p.id, p])), [projects]);
@@ -101,7 +115,7 @@ export function ProjectsCatalog({ projects, variant = "grid", autoplay = false }
     const key = (sp.get("ipc_scale") || sp.get("scale") || "").toLowerCase();
     if (isScaleKey(key)) {
       setScale(key);
-      setRanges(PRESETS[key]);
+      setRanges(scaleRanges(projects, key));
     }
     const openFromHash = () => {
       const m = window.location.hash.match(/^#ipc-project-(\d+)$/);
@@ -111,7 +125,7 @@ export function ProjectsCatalog({ projects, variant = "grid", autoplay = false }
     openFromHash();
     window.addEventListener("hashchange", openFromHash);
     return () => window.removeEventListener("hashchange", openFromHash);
-  }, [byId]);
+  }, [byId, projects]);
 
   function setDim(dim: Dim, v: Range) {
     setRanges((r) => ({ ...r, [dim]: v }));
@@ -120,7 +134,7 @@ export function ProjectsCatalog({ projects, variant = "grid", autoplay = false }
 
   function applyScale(key: ScaleKey) {
     setScale(key);
-    setRanges(PRESETS[key]);
+    setRanges(scaleRanges(projects, key));
     resetPaging();
   }
 
@@ -221,10 +235,7 @@ export function ProjectsCatalog({ projects, variant = "grid", autoplay = false }
                   key={s.key}
                   type="button"
                   data-active={sort === s.key || undefined}
-                  onClick={() => {
-                    setSort(s.key);
-                    resetPaging();
-                  }}
+                  onClick={() => setSort(s.key)}
                 >
                   {s.label}
                 </button>

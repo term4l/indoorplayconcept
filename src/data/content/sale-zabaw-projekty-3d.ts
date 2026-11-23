@@ -1,4 +1,4 @@
-/** Projekty 3D – dane kart z oryginalnej strony (pierwsza strona wyników wtyczki IPC Projects). */
+/** Projekty 3D – dane kart z oryginalnej strony (wszystkie 13 projektów wtyczki IPC Projects, kolejność jak w oryginale). */
 
 export type Project = {
   id: string;
@@ -22,7 +22,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     "id": "3583",
-    "title": "Wewnętrzne sale zabaw",
+    "title": "Wewnętrzna sala zabaw - Wodny Rekin",
     "code": "PD-PA003",
     "image": "/images/sale-zabaw-projekty-3d/pd-pa003.webp",
     "category": "soft-play",
@@ -154,5 +154,65 @@ export const projects: Project[] = [
     "age": "Wiek:2+",
     "badges": [],
     "fullDescUrl": "/pl/malpi-gaj-w-hotelu-pastelowy-raj/"
+  },
+  {
+    "id": "3530",
+    "title": "Małpi gaj Podwodny Świat w siłowni",
+    "code": "PM-PA007",
+    "image": "/images/sale-zabaw-projekty-3d/pm-pa007.webp",
+    "category": "soft-play",
+    "description": "Małpi gaj w siłowni – Podwodny Świat to kompaktowa strefa zabaw dla młodszych oraz starszych dzieci zaprojektowana specjalnie do przestrzeni klubów fitness i siłowni. Rozwiązanie umożliwia rodzicom komfortowy trening, zapewniając…",
+    "price": "15 667,00 €",
+    "length": 7.3,
+    "width": 3.6,
+    "height": 3.5,
+    "age": "Wiek:3+",
+    "badges": [],
+    "fullDescUrl": "/pl/malpi-gaj-podwodny-swiat-w-silowni/"
+  },
+  {
+    "id": "3513",
+    "title": "Małpi gaj w kręgielni",
+    "code": "PM-PA005",
+    "image": "/images/sale-zabaw-projekty-3d/pm-pa005.webp",
+    "category": "soft-play",
+    "description": "Małpi gaj w kręgielni to poziomowa konstrukcja z miękkim wykończeniem zaprojektowana z myślą o kręgielniach i obiektach rozrywki, w których najmłodsze dzieci potrzebują bezpiecznej i angażującej strefy zabawy w czasie…",
+    "price": "19 982,00 €",
+    "length": 7.3,
+    "width": 6.1,
+    "height": 3,
+    "age": "Wiek:3+",
+    "badges": [],
+    "fullDescUrl": ""
+  },
+  {
+    "id": "3500",
+    "title": "Małpi Gaj w restauracji",
+    "code": "PM-PA004",
+    "image": "/images/sale-zabaw-projekty-3d/pm-pa004.webp",
+    "category": "soft-play",
+    "description": "Małpi Gaj Dziecięcy Świat ten przykładowy projekt, który zaproponowaliśmy idealnie wpisuje się do zastosowaniu jako Małpi Gaj w restauracji. Co przekłada się na świadomy wzrost odwiedzających rodzin z dziećmi.",
+    "price": "18 883,00 €",
+    "length": 7.3,
+    "width": 4.9,
+    "height": 3,
+    "age": "Wiek:3+",
+    "badges": [],
+    "fullDescUrl": ""
+  },
+  {
+    "id": "3333",
+    "title": "Wewnętrzny plac zabaw w hotelu",
+    "code": "PM-PA001",
+    "image": "/images/sale-zabaw-projekty-3d/pm-pa001.webp",
+    "category": "soft-play",
+    "description": "Wewnętrzny plac zabaw w hotelu to kolorowa, wielopoziomowa przestrzeń zabaw zaprojektowana jako osobne pomieszczenie hotelowe, przeznaczone dla dzieci w różnym wieku. Projekt łączy strefę z rozbudowaną konstrukcją zabawową, zapewniając aktywną…",
+    "price": "22 673,00 €",
+    "length": 6.1,
+    "width": 8.5,
+    "height": 3,
+    "age": "Wiek:4+",
+    "badges": [],
+    "fullDescUrl": "/pl/wewnetrzny-plac-zabaw-w-hotelu/"
   }
 ];

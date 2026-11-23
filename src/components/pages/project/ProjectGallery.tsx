@@ -46,7 +46,7 @@ export function ProjectGallery({ images }: { images: GalleryImage[] }) {
         {images.map((img, i) => (
           <figure key={img.full} className={styles.galleryItem}>
             <a href={img.full} onClick={(e) => open(e, i)} aria-label={`Powiększ: ${img.alt}`}>
-              <Image src={img.src} alt={img.alt} width={img.width} height={img.height} sizes="(max-width: 767px) 100vw, 1040px" />
+              <Image src={img.src} alt={img.alt} width={img.width} height={img.height} sizes="(max-width: 767px) 100vw, 768px" />
             </a>
           </figure>
         ))}
