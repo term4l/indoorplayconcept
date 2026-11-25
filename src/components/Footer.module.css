@@ -1,5 +1,7 @@
+/* Linie jak w stopce Elementora: górna krawędź wiersza, pionowe kreski między kolumnami (border-left kolumn 2–6)
+   i linia nad prawami autorskimi – wszystkie 1px #212121. */
 .footer {
-  border-top: 1px solid #1a1a1a;
+  border-top: 1px solid var(--c-surface);
 }
 
 .columns {
@@ -14,7 +16,15 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-right: 24px;
+  padding: 10px 10px 10px 20px;
+}
+
+.col:first-child {
+  padding: 10px 20px 0 10px;
+}
+
+.col + .col {
+  border-left: 1px solid var(--c-surface);
 }
 
 .title {
@@ -92,9 +102,9 @@
 }
 
 .bottom {
-  padding: 20px 14px;
+  padding: 17px 96px;
   text-align: center;
-  border-top: 1px solid #1a1a1a;
+  border-top: 1px solid var(--c-surface);
 }
 
 .bottom p {
