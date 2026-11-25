@@ -12,7 +12,7 @@ export const company = {
     { icon: "building", text: "37-450 Stalowa Wola, Poland" },
     { icon: "globe", text: "VAT ID: PL8672111678" },
     { icon: "phone", text: "+48 663 960 969", href: "tel:+48663960969" },
-    { icon: "envelope", text: "hello@indoorplayconcept.com", href: "mailto:info@indoorplayconcept.com" },
+    { icon: "envelope", text: "hello@indoorplayconcept.com", href: "mailto:hello@indoorplayconcept.com" },
     { icon: "calendar", text: "Godziny otwarcia: Pon – Pia 8:00 – 16:00" },
   ] satisfies ContactLine[],
   social: [

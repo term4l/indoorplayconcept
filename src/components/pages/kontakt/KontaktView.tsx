@@ -11,7 +11,7 @@ const contactItems: { text: string; href?: string }[] = [
   { text: "🧭 37-450 Stalowa Wola" },
   { text: "🏷️ VAT ID: PL8672111678" },
   { text: "📞 +48 663 960 969", href: "tel:+48663960969" },
-  { text: "✉️ hello@indoorplayconcept.com", href: "mailto:info@indoorplayconcept.com" },
+  { text: "✉️ hello@indoorplayconcept.com", href: "mailto:hello@indoorplayconcept.com" },
   { text: "🗓️ Godziny otwarcia: Pon – Pia 8:00 – 16:00", href: "tel:+48663960969" },
 ];
 
