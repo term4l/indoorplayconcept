@@ -122,28 +122,48 @@
 
 /* ---------- CTA ---------- */
 
+/* Przycisk „IPC PLANNER 3D” – wartości z klas Tailwinda w kodzie klienta (IPCNavbar): gradient #52B52B→#398F1D,
+   ramka #74D452/40 %, zaokrąglenie 12 px, 14 px bold uppercase, cień zielony; na hover jaśniejszy gradient i strzałka w prawo. */
 .cta {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
-  font: 400 13px/1 var(--font-albert), sans-serif;
-  color: #e0e0e0;
-  border: 1px solid #e0e0e0;
-  border-radius: 7px;
-  transition: background 0.2s, color 0.2s;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  font: 700 14px/1.25 var(--font-albert), sans-serif;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(to right, #52b52b, #398f1d);
+  border: 1px solid rgba(116, 212, 82, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 6px 22px rgba(82, 181, 43, 0.24);
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 .cta:hover {
-  background: #e0e0e0;
-  color: #212121;
+  color: #fff;
+  background: linear-gradient(to right, #63c93e, #45a225);
+  box-shadow: 0 9px 26px rgba(82, 181, 43, 0.38);
 }
 
-.ctaIcon {
-  width: 13px;
-  height: 13px;
-  order: 2;
+.cta:focus-visible {
+  outline: 2px solid #52b52b;
+  outline-offset: 2px;
+}
+
+.ctaIcon,
+.ctaArrow {
+  flex-shrink: 0;
+}
+
+.ctaArrow {
+  transition: transform 0.3s;
+}
+
+.cta:hover .ctaArrow {
+  transform: translateX(4px);
 }
 
 @media (max-width: 1024px) {

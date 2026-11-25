@@ -3,7 +3,7 @@ import Image from "next/image";
 import { consultationCta, mainNav } from "@/data/navigation";
 import { DesktopNav } from "./DesktopNav";
 import { MobileMenu } from "./MobileMenu";
-import { Icon } from "./Icons";
+import { LucideIcon } from "./LucideIcon";
 import styles from "./Header.module.css";
 
 export function Header() {
@@ -16,9 +16,11 @@ export function Header() {
 
         <DesktopNav items={mainNav} />
 
+        {/* Zielony przycisk z ikonami jak w kodzie klienta (IPCNavbar): gradient, box + strzałka przesuwana na hover. */}
         <Link href={consultationCta.href} className={styles.cta}>
-          <Icon name="arrowRight" className={styles.ctaIcon} />
+          <LucideIcon name="box" size={16} className={styles.ctaIcon} />
           <span>{consultationCta.label}</span>
+          <LucideIcon name="arrow-right" size={16} className={styles.ctaArrow} />
         </Link>
 
         <MobileMenu items={mainNav} cta={consultationCta} />

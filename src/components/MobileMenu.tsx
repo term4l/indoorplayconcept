@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import type { NavItem } from "@/data/navigation";
 import { localizeLanguageSwitcher } from "@/lib/i18n";
 import { Icon } from "./Icons";
+import { LucideIcon } from "./LucideIcon";
 import styles from "./MobileMenu.module.css";
 
 type Props = {
@@ -136,8 +137,9 @@ export function MobileMenu({ items, cta }: Props) {
 
           <div className={styles.cta}>
             <Link href={cta.href} className={styles.ctaBtn} onClick={close}>
+              <LucideIcon name="box" size={16} className={styles.ctaIcon} />
               <span>{cta.label}</span>
-              <span aria-hidden="true">→</span>
+              <LucideIcon name="arrow-right" size={16} className={styles.ctaArrow} />
             </Link>
           </div>
         </div>
