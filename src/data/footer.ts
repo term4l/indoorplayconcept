@@ -47,7 +47,7 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
       { label: "Play Magazine", href: "/pl/play-magazine/" },
       { label: "FAQ", href: "/pl/faq/" },
       { label: "Kalkulator ROI", href: "/pl/kalkulator-roi/" },
-      { label: "Proces współpracy", href: "/pl/#proces" },
+      { label: "Proces współpracy", href: "/pl/proces-wspolpracy/" },
       { label: "Zgłoszenie Serwisowe", href: "/pl/zgloszenie-serwisowe/" },
     ],
   },
