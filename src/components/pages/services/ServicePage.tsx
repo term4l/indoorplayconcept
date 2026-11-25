@@ -87,11 +87,12 @@ function Stats({ block }: { block: StatsBlock }) {
     <div className={styles.stats}>
       {block.items.map((item) => (
         <div key={item.label} className={styles.stat}>
-          <div className={styles.statLabel}>{item.label}</div>
+          {/* Jak w liczniku Elementora: liczba u góry, podpis pod nią. */}
           <div className={styles.statNumber}>
             <Counter value={item.value} />
             <span>{item.suffix}</span>
           </div>
+          <div className={styles.statLabel}>{item.label}</div>
         </div>
       ))}
     </div>
