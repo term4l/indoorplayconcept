@@ -391,6 +391,16 @@ export const pages = {
     readingTime: "4 minuty",
     hreflang: {pl: "/pl/polityka-prywatnosci/", en: "/en/privacy-policy/", de: "/de/datenschutzrichtlinie/", nl: "/nl/privacybeleid/", fr: "/fr/politique-de-confidentialite/", es: "/es/politica-de-privacidad/"},
   },
+  "proces-wspolpracy": {
+    path: "/pl/proces-wspolpracy/",
+    title: "Proces współpracy – Twoja droga do własnego projektu | IndoorPlayConcept",
+    description: "Wybierz ścieżkę współpracy z Indoor Play Concept: masz budynek, szukasz lokalu, modernizujesz obiekt, dopiero się rozglądasz albo chcesz ścieżki ekspresowej.",
+    breadcrumb: "Proces współpracy",
+    datePublished: "2026-11-25T12:00:00+00:00",
+    dateModified: "2026-11-25T12:00:00+00:00",
+    ogType: "website",
+    hreflang: {pl: "/pl/proces-wspolpracy/"},
+  },
   "przebudowa": {
     path: "/pl/przebudowa/",
     title: "Przebudowa sal zabaw dla dzieci Indoor Play Concept kompleksowa modernizacja obiektów",
@@ -500,7 +510,6 @@ export const pages = {
   "strefa-klienta": {
     path: "/pl/strefa-klienta/",
     title: "Strefa Klienta - IndoorPlayConcept",
-    description: "Twoja droga do własnego projektu: wybierz ścieżkę współpracy z Indoor Play Concept – od pierwszego rozeznania po modernizację obiektu.",
     breadcrumb: "Strefa Klienta",
     datePublished: "2025-12-19T18:24:40+00:00",
     dateModified: "2026-02-04T19:12:53+00:00",

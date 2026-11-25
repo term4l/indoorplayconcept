@@ -14,12 +14,13 @@ import {
   type Endpoint,
   type Path,
   type PathId,
-} from "@/data/content/strefa-klienta";
+} from "@/data/content/proces-wspolpracy";
 import { LucideIcon, type LucideName } from "@/components/LucideIcon";
 import styles from "./CooperationMap.module.css";
 
 /*
  * Interaktywna mapa pierwszej współpracy – port komponentu StrefaKlienta.jsx od klienta (24.11.2026).
+ * Od 25.11.2026 pod /pl/proces-wspolpracy/ (decyzja Jakuba); Strefa Klienta wróciła do panelu logowania.
  * Zamiast Tailwinda i framer-motion: CSS modules i animacja wejścia w CSS; ikony Lucide wklejone (icons.tsx).
  * Logika wyboru ścieżek, budżetu i punktów końcowych oraz pobierania PDF jest 1:1 z oryginału.
  */

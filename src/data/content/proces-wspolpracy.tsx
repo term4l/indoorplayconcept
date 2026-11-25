@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import type { LucideName } from "@/components/LucideIcon";
 
 /*
- * Strefa Klienta – interaktywna mapa pierwszej współpracy z Indoor Play Concept.
+ * Proces współpracy (/pl/proces-wspolpracy/) – interaktywna mapa pierwszej współpracy z Indoor Play Concept.
  * Treść i logika 1:1 z pliku StrefaKlienta.jsx od klienta (24.11.2026); struktura decyzji
  * odpowiada folderom w „Test Brif.zip”.
  */
